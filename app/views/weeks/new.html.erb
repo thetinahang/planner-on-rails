@@ -1,0 +1,29 @@
+<h2>It's a new week!</h2>
+<%= form_tag weeks_path, method: "post" do %>
+  <% if @week.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @week.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field<%= ' field_with_errors' if @week.errors[:week_day_date].any?%>">
+    <%= label_tag "week_day_date", "Date" %>
+    <%= text_field_tag "week_day_date", @week.week_day_date %>
+  </div>
+
+  <div class="field<%= ' field_with_errors' if @week.errors[:week_big_win_1].any?%>">
+    <%= label_tag "week_big_win_1", "Big Win 1" %>
+    <%= text_field_tag "week_big_win_1", @week.week_big_win_1 %>
+  </div>
+
+  <div class="field<%= ' field_with_errors' if @week.errors[:week_improvement_1].any? %>">
+    <%= label_tag "week_improvement_1", "Improvement 1" %>
+    <%= text_field_tag "week_improvement_1", @week.week_improvement_1 %>
+  </div>
+
+  <%= submit_tag "Create" %>
+<% end %>
