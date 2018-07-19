@@ -1,0 +1,12 @@
+<%= form_tag months_path do %>
+	<label>New Month!</label>
+	<br></br>
+
+	<label>Month:</label>
+	<%= text_field_tag :'month_name'%><br>
+
+	<label>Focus:</label>
+	<%= text_field_tag :'month_focus'%><br>
+
+	<%= submit_tag "Submit" %>
+<% end %>
