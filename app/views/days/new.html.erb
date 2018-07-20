@@ -1,29 +1,11 @@
-<h2>It's a new day!</h2>
-<%= form_tag days_path, method: "post" do %>
-  <% if @day.errors.any? %>
-    <div id="error_explanation">
-      <h2>There were some errors:</h2>
-      <ul>
-        <% @day.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field<%= ' field_with_errors' if @day.errors[:day_day_date].any?%>">
-    <%= label_tag "day_date", "Date" %>
-    <%= text_field_tag "day_date", @day.day_day_date %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @day.errors[:day_grateful_1].any?%>">
-    <%= label_tag "day_grateful_1", "Grateful Item 1" %>
-    <%= text_field_tag "day_grateful_1", @day.day_grateful_1 %>
-  </div>
-
-  <div class="field<%= ' field_with_errors' if @day.errors[:day_excited_1].any? %>">
-    <%= label_tag "day_excited_1", "Excited Item 1" %>
-    <%= text_field_tag "day_excited_1", @day.day_excited_1 %>
-  </div>
-
-  <%= submit_tag "Create" %>
+<%= form_tag days_path do %>
+  <label>Day and date:</label><br>
+  <%= text_field_tag :day_day_date %><br>
+ 
+  <label>3 things you are grateful for</label><br>
+  <%= text_area_tag :day_grateful_1 %><br>
+  <%= text_area_tag :day_grateful_2 %><br>
+  <%= text_area_tag :day_grateful_3 %><br>
+ 
+  <%= submit_tag "Submit Day" %>
 <% end %>
