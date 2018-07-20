@@ -13,4 +13,14 @@ class DaysController < ApplicationController
   	@day = Day.find(params[:id])
   end
 
+  def edit
+  	@day = Day.find(params[:id])
+  end
+
+  def update
+    @day = Day.find(params[:id])
+    @psay.update(params) #need to fix this line
+    redirect_to day_path(@day)
+  end
+
 end
