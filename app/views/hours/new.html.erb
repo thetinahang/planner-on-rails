@@ -1,0 +1,20 @@
+<h2>Hour of the day:</h2>
+<%= form_tag hours_path, method: "post" do %>
+  <% if @hour.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @hour.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field<%= ' field_with_errors' if @hour.errors[:hour_number].any?%>">
+    <%= label_tag "hour_number", "Hour" %>
+    <%= text_field_tag "hour_number", @hour.hour_number %>
+  </div>
+
+
+  <%= submit_tag "Create" %>
+<% end %>
