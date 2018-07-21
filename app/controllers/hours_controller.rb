@@ -12,4 +12,14 @@ class HoursController < ApplicationController
   def show
   end
 
+   def edit
+  	@hour = Hour.find(params[:id])
+  end
+
+  def update
+    @hour = Hour.find(params[:id])
+    @hour.update(params) #need to fix this line
+    redirect_to hour_path(@hour)
+  end
+
 end

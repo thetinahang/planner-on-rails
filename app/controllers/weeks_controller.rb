@@ -12,4 +12,14 @@ class WeeksController < ApplicationController
   def show
   end
 
+   def edit
+  	@week = Week.find(params[:id])
+  end
+
+  def update
+    @week = Week.find(params[:id])
+    @week.update(params) #need to fix this line
+    redirect_to week_path(@week)
+  end
+
 end

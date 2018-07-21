@@ -19,7 +19,7 @@ class DaysController < ApplicationController
 
   def update
     @day = Day.find(params[:id])
-    @psay.update(params) #need to fix this line
+    @day.update(params) #need to fix this line
     redirect_to day_path(@day)
   end
 

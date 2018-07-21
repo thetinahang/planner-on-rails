@@ -12,4 +12,14 @@ class MonthsController < ApplicationController
   def show
   end
 
+   def edit
+  	@month = Month.find(params[:id])
+  end
+
+  def update
+    @month = Month.find(params[:id])
+    @month.update(params) #need to fix this line
+    redirect_to month_path(@month)
+  end
+
 end
