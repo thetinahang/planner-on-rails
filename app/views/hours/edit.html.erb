@@ -1,0 +1,6 @@
+<%= form_tag hours_path(@hours), method: "put" do %>
+  <label>hours number:</label><br>
+  <%= text_field_tag :hours_number, @hours.hours_number %><br>
+ 
+  <%= submit_tag "Submit hours" %>
+<% end %>
