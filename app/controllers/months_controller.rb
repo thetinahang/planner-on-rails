@@ -18,7 +18,7 @@ class MonthsController < ApplicationController
 
   def update
     @month = Month.find(params[:id])
-    @month.update(params) #need to fix this line
+    @month.update(params.require(:month)) #need to fix this line
     redirect_to month_path(@month)
   end
 

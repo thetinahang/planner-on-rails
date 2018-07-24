@@ -18,7 +18,7 @@ class HoursController < ApplicationController
 
   def update
     @hour = Hour.find(params[:id])
-    @hour.update(params) #need to fix this line
+    @hour.update(params.require(:hour)) #need to fix this line
     redirect_to hour_path(@hour)
   end
 
