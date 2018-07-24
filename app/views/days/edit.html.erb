@@ -1,11 +1,13 @@
-<%= form_tag days_path(@day), method: "put" do %>
+<h3>Day Form</h3>
+
+<%= form_for(@day) do |f| %>
   <label>Day and date:</label><br>
-  <%= text_field_tag :day_day_date, @day.day_day_date %><br>
+  <%= f.text_field :day_day_date %><br>
  
   <label>3 things you are grateful for</label><br>
-  <%= text_area_tag :day_grateful_1, @day.day_grateful_1 %><br>
-  <%= text_area_tag :day_grateful_2, @day.day_grateful_2 %><br>
-  <%= text_area_tag :day_grateful_3, @day.day_grateful_3 %><br>
+  <%= f.text_area :day_grateful_1 %><br>
+  <%= f.text_area :day_grateful_2 %><br>
+  <%= f.text_area :day_grateful_3 %><br>
  
-  <%= submit_tag "Submit Day" %>
+  <%= f.submit %>
 <% end %>
