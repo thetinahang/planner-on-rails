@@ -1,0 +1,14 @@
+<h3>Month Form</h3>
+
+<%= form_for(@month) do |f| %>
+	<label>New Month!</label>
+	<br></br>
+
+	<label>Month:</label>
+	<%= f.text_field :month_name%><br>
+
+	<label>Focus:</label>
+	<%= f.text_field :month_focus%><br>
+ 
+  <%= f.submit %>
+<% end %>

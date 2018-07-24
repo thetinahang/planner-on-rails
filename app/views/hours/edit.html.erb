@@ -1,6 +1,8 @@
-<%= form_tag hours_path(@hours), method: "put" do %>
+<h3>Hour Form</h3>
+
+<%= form_for(@hour) do |f| %>
   <label>hours number:</label><br>
-  <%= text_field_tag :hours_number, @hours.hours_number %><br>
+  <%= f.text_field :hours_number %><br>
  
-  <%= submit_tag "Submit hours" %>
+  <%= f.submit %>
 <% end %>
