@@ -7,6 +7,9 @@ class DaysController < ApplicationController
   end
 
   def create
+    @day = Day.create(day_params)
+    @day.save
+    redirect_to day_path(@day)
   end
 
   def show
@@ -19,8 +22,13 @@ class DaysController < ApplicationController
 
   def update
     @day = Day.find(params[:id])
-    @day.update(params.require(:day)) #need to fix this line
+    @day.update(day_params) #need to fix this line
     redirect_to day_path(@day)
   end
 
+  private
+
+    def day_params
+      params.require(:day).permit(:day_day_date, :day_grateful_1, :day_grateful_2, :day_grateful_3)
+    end
 end
