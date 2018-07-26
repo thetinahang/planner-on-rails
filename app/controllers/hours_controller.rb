@@ -7,19 +7,28 @@ class HoursController < ApplicationController
   end
 
   def create
+    @hour = Hour.create(hour_params)
+    @hour.save
+    redirect_to hour_path(@hour)
   end
 
   def show
+    @hour = Hour.find(params[:id])
   end
 
-   def edit
+  def edit
   	@hour = Hour.find(params[:id])
   end
 
   def update
     @hour = Hour.find(params[:id])
-    @hour.update(params.require(:hour)) #need to fix this line
+    @hour.update(hour_params)
     redirect_to hour_path(@hour)
   end
 
+  private
+
+    def hour_params
+      params.require(:hour).permit(:hour_number)
+    end
 end

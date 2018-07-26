@@ -1,17 +1,14 @@
 <h3>Week Form</h3>
 
 <%= form_tag weeks_path do %>
-  <label>New Week!</label>
-  <br></br>
+	<label>Day and Date:</label><br>
+	<%= text_field_tag :week_day_date %><br>
 
-  <label>Day and Date:</label>
-  <%= text_field_tag :week_day_date %><br>
+	<label>Big Win:</label><br>
+	<%= text_field_tag :week_big_win_1 %><br>
 
-  <label>Big Win:</label>
-  <%= text_field_tag :week_big_win_1 %><br>
+	<label>Improvement 1:</label><br>
+	<%= text_field_tag :week_improvement_1 %><br>
 
-  <label>Improvement 1:</label>
-  <%= text_field_tag :week_improvement_1 %><br>
-
-  <%= submit_tag "Submit" %>
+	<%= submit_tag "Submit" %>
 <% end %>
