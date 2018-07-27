@@ -1,9 +1,11 @@
 class DaysController < ApplicationController
 
   def index
+    @days = Day.all
   end
 
   def new
+    @day = Day.new
   end
 
   def create
