@@ -1,9 +1,11 @@
 class HoursController < ApplicationController
 
   def index
+    @hours = Hour.all
   end
 
   def new
+    @hour = Hour.new
   end
 
   def create

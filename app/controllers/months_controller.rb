@@ -1,9 +1,11 @@
 class MonthsController < ApplicationController
 
   def index
+    @months = Month.all
   end
 
   def new
+    @month = Month.new
   end
 
   def create

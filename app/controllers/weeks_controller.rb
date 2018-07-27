@@ -1,9 +1,11 @@
 class WeeksController < ApplicationController
 
   def index
+    @weeks = Week.all
   end
 
   def new
+    @week = Week.new
   end
 
   def create
