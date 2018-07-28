@@ -26,8 +26,11 @@ class DaysController < ApplicationController
   end
 
   def update
-    @day.update(day_params)
-    redirect_to day_path(@day)
+    if @day.update(day_params)
+      redirect_to day_path(@day)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -40,7 +43,7 @@ class DaysController < ApplicationController
 
   private
 
-    def set_day
+    def set_day!
       @day = Day.find(params[:id])
     end
 

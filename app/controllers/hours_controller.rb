@@ -43,7 +43,7 @@ class HoursController < ApplicationController
 
   private
 
-    def set_hour
+    def set_hour!
       @hour = Hour.find(params[:id])
     end
 

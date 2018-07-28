@@ -43,7 +43,7 @@ class WeeksController < ApplicationController
 
   private
 
-    def set_week
+    def set_week!
       @week = Week.find(params[:id])
     end
 

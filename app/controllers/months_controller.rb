@@ -43,7 +43,7 @@ class MonthsController < ApplicationController
 
   private
 
-    def set_month
+    def set_month!
       @month = Month.find(params[:id])
     end
 
