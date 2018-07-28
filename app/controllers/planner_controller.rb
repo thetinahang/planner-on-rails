@@ -1,0 +1,3 @@
+class PlannerController < ApplicationController
+
+end

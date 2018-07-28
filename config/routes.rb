@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  root 'planner#index', as: 'planner'
   resources :days, only: [:index, :show, :new, :create, :edit]
   patch 'days/:id', to: 'days#update'
   resources :hours, only: [:index, :show, :new, :create, :edit]
