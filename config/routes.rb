@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'planner#index', as: 'planner'
+  #need to connect landing page with a new page when signed in 
   resources :days, only: [:index, :show, :new, :create, :edit]
   patch 'days/:id', to: 'days#update'
   resources :hours, only: [:index, :show, :new, :create, :edit]
