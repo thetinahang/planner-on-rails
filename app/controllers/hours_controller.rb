@@ -1,4 +1,5 @@
 class HoursController < ApplicationController
+  before_action :set_hour, only: [:show, :edit, :update, :destroy]
 
   def index
     @hours = Hour.all
@@ -9,26 +10,39 @@ class HoursController < ApplicationController
   end
 
   def create
-    @hour = Hour.create(hour_params)
-    @hour.save
-    redirect_to hour_path(@hour)
+    @hour = Hour.new(hour_params)
+    if @hour.valid?
+      @hour.save
+      redirect_to hour_path(@hour)
+    else
+      render :new
+    end
   end
 
   def show
-    @hour = Hour.find(params[:id])
   end
 
   def edit
-  	@hour = Hour.find(params[:id])
   end
 
   def update
-    @hour = Hour.find(params[:id])
     @hour.update(hour_params)
     redirect_to hour_path(@hour)
   end
 
+  def destroy
+    @hour.destroy
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: 'Hour was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
+  
+    def set_hour
+      @hour = Hour.find(params[:id])
+    end
 
     def hour_params
       params.require(:hour).permit(:hour_number)

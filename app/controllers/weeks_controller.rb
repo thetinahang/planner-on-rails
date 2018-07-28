@@ -1,4 +1,5 @@
 class WeeksController < ApplicationController
+  before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   def index
     @weeks = Week.all
@@ -9,26 +10,39 @@ class WeeksController < ApplicationController
   end
 
   def create
-    @week = Week.create(week_params)
-    @week.save
-    redirect_to week_path(@week)
+    @week = Week.new(week_params)
+    if @week.valid?
+      @week.save
+      redirect_to week_path(@week)
+    else
+      render :new
+    end
   end
 
   def show
-    @week = Week.find(params[:id])
   end
 
   def edit
-    @week = Week.find(params[:id])
   end
 
   def update
-    @week = Week.find(params[:id])
     @week.update(week_params)
     redirect_to week_path(@week)
   end
 
+  def destroy
+    @week.destroy
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: 'Week was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
+
+    def set_week
+      @week = Week.find(params[:id])
+    end
 
     def week_params
       params.require(:week).permit(:week_day_date, :week_big_win_1, :week_improvement_1)

@@ -10,9 +10,13 @@ class DaysController < ApplicationController
   end
 
   def create
-    @day = Day.create(day_params)
-    @day.save
-    redirect_to day_path(@day)
+    @day = Day.new(day_params)
+    if @day.valid?
+      @day.save
+      redirect_to day_path(@day)
+    else
+      render :new
+    end
   end
 
   def show
