@@ -1,14 +1,37 @@
-<h3>Month Form</h3>
+<h1>Edit Month Form</h1>
 
 <%= form_for(@month) do |f| %>
-	<label>New Month!</label>
-	<br></br>
+	<label>Month:</label><br>
+	<%= f.text_field :month_name %><br>
 
-	<label>Month:</label>
-	<%= f.text_field :month_name%><br>
+	<label>Focus: </label><br>
+	<%= f.text_field :month_focus %><br>
 
-	<label>Focus:</label>
-	<%= f.text_field :month_focus%><br>
+	<label>Habit: </label><br>
+	<%= f.text_field :month_habit %><br>
  
-  <%= f.submit %>
+	<label>Goals for the month:</label><br>
+	1. <%= f.text_field :month_goal_1 %><br>
+	2. <%= f.text_field :month_goal_2 %><br>
+	3. <%= f.text_field :month_goal_3 %><br>
+
+	<label>Distractions to avoid:</label><br>
+	1. <%= f.text_field :month_distraction_1 %><br>
+	2. <%= f.text_field :month_distraction_2 %><br>
+	3. <%= f.text_field :month_distraction_3 %><br>
+
+	<label>Notes: </label><br>
+	<%= f.text_field :month_notes %><br>
+
+	<label>Wins of the month:</label><br>
+	1. <%= f.text_field :month_win_1 %><br>
+	2. <%= f.text_field :month_win_2 %><br>
+	3. <%= f.text_field :month_win_3 %><br>
+
+	<label>Insights:</label><br>
+	1. <%= f.text_field :month_insight_1 %><br>
+	2. <%= f.text_field :month_insight_2 %><br>
+	3. <%= f.text_field :month_insight_3 %><br>
+ 
+	<%= f.submit %>
 <% end %>

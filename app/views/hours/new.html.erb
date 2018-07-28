@@ -1,8 +1,8 @@
-<h3>Hour Form</h3>
+<h1>New Hour Form</h1>
 
-<%= form_tag hours_path do %>
+<%= form_for(@hour) do |f| %>
 	<label>Hour number:</label><br>
-	<%= text_field_tag :hour_number %><br>
+	<%= f.text_field :hour_number %><br>
  
-	<%= submit_tag "Submit Hour" %>
+	<%= f.submit %>
 <% end %>
