@@ -1,5 +1,5 @@
 class MonthsController < ApplicationController
-  before_action :set_month, only: [:show, :edit, :update, :destroy]
+  before_action :set_month!, only: [:show, :edit, :update, :destroy]
 
   def index
     @months = Month.all
