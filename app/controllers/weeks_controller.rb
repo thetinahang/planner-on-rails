@@ -26,8 +26,11 @@ class WeeksController < ApplicationController
   end
 
   def update
-    @week.update(week_params)
-    redirect_to week_path(@week)
+    if @week.update(week_params)
+      redirect_to week_path(@week)
+    else
+      render :edit
+    end
   end
 
   def destroy

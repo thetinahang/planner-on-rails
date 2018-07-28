@@ -26,8 +26,11 @@ class HoursController < ApplicationController
   end
 
   def update
-    @hour.update(hour_params)
-    redirect_to hour_path(@hour)
+    if @hour.update(hour_params)
+      redirect_to hour_path(@hour)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -39,7 +42,7 @@ class HoursController < ApplicationController
   end
 
   private
-  
+
     def set_hour
       @hour = Hour.find(params[:id])
     end

@@ -26,8 +26,11 @@ class MonthsController < ApplicationController
   end
 
   def update
-    @month.update(month_params)
-    redirect_to month_path(@month)
+    if @month.update(month_params)
+      redirect_to month_path(@month)
+    else
+      render :edit
+    end
   end
 
   def destroy
