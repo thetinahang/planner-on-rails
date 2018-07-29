@@ -9,8 +9,11 @@
   </head>
 
   <body>
-  	<%= render 'layouts/header' %>
-    <%= render 'layouts/sign_in' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/sign_in' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

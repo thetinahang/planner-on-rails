@@ -1,8 +1,12 @@
-<% if user_signed_in? %>
-  <li>Signed in as <%= current_user.email %></li>
-  <li> <%= link_to "Planner Home", show_planner_path %> </li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-<% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-<% end %>
+<div class="container">
+    <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-left">
+            <li>Signed in as <%= current_user.email %></li>
+            <li><%= link_to "Months", months_path %></li>
+            <li><%= link_to "Weeks", weeks_path %></li>
+            <li><%= link_to "Days", days_path %></li>
+            <li><%= link_to "Settings", edit_user_registration_path %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+        </ul>
+    <% end %>
+</div>
