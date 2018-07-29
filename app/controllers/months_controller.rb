@@ -11,12 +11,8 @@ class MonthsController < ApplicationController
 
   def create
     @month = Month.new(month_params)
-    if @month.valid?
-      @month.save
-      redirect_to month_path(@month)
-    else
-      render :new
-    end
+    @month.save
+    redirect_to @month
   end
 
   def show
@@ -48,6 +44,6 @@ class MonthsController < ApplicationController
     end
 
     def month_params
-      params.require(:month).permit(:month_name, :month_focus)
+      params.require(:month).permit(:month_name, :month_focus, :month_habit, :month_goal_1, :month_goal_2, :month_goal_3, :month_distraction_1, :month_distraction_2, :month_distraction_3, :month_notes, :month_win_1, :month_win_2, :month_win_3, :month_insight_1, :month_insight_2, :month_insight_3)
     end
 end
