@@ -1,5 +1,5 @@
 <h1>Here are all of your weeks:</h1>
 
 <% @weeks.each do |week| %>
-  <%= @week.week_day_date %>
+  <li><%= link_to week.week_day_date, week_path(week) %></li>
 <% end %>

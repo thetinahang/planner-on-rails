@@ -1,5 +1,5 @@
 <h1>Here are all of your days:</h1>
 
 <% @days.each do |day| %>
-  <%= @day.day_day_date %>
+  <li><%= link_to day.day_day_date, day_path(day) %></li>
 <% end %>

@@ -48,6 +48,33 @@ class WeeksController < ApplicationController
     end
 
     def week_params
-      params.require(:week).permit(:week_day_date, :week_big_win_1, :week_improvement_1)
+      params.require(:week).permit(:week_day_date, 
+        :week_big_win_1,
+        :week_big_win_2,
+        :week_big_win_3,
+        :week_big_win_4,
+        :week_big_win_5,
+        :week_improvement_1,
+        :week_improvement_2,
+        :week_personal,
+        :week_work,
+        :week_family_friends,
+        :week_relationship,
+        :week_forward_1,
+        :week_forward_2,
+        :week_forward_3,
+        :week_habit_1,
+        :week_habit_2,
+        :week_learn,
+        :week_passion,
+        :week_project_1,
+        :week_project_2,
+        :week_project_3,
+        :week_project_4,
+        :week_goal_1,
+        :week_goal_2,
+        :week_goal_3,
+        :week_goal_4,
+        :week_goal_5)
     end
 end
