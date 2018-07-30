@@ -68,7 +68,6 @@
 		<p><%= @day.day_improvement %></p>
 </div>
 
-
-
-
+<%= link_to("Edit #{@day.day_day_date}", edit_day_path) %><br>
+<%= link_to("Delete #{@day.day_day_date}", day_path(@day), method: :delete, data: { confirm: 'Are you sure?' } ) %>
 
