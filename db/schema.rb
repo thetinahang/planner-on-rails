@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180716004939) do
+ActiveRecord::Schema.define(version: 20180731001633) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_day_date"
@@ -101,8 +101,12 @@ ActiveRecord::Schema.define(version: 20180716004939) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
   create_table "weeks", force: :cascade do |t|

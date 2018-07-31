@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'planner#index'
   #need to connect landing page with a new page when signed in 
   resources :days #, only: [:index, :show, :new, :create, :edit]
