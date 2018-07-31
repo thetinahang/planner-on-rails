@@ -1,6 +1,6 @@
 <h1>New Day Form</h1>
 
-<% if @day.errors.any? %> #shouldnt need this if form_for works correctly
+<% if @day.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(@day.errors.count, "error") %>
