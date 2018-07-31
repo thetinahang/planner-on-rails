@@ -45,7 +45,8 @@
 		<p>5. <%= @week.week_goal_5 %></p>
 </div>
 
-
+<%= link_to("Edit #{@week.week_day_date}", edit_week_path) %><br>
+<%= link_to("Delete #{@week.week_day_date}", week_path(@week), method: :delete, data: { confirm: 'Are you sure?' } ) %>
 
 
 

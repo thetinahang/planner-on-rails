@@ -3,3 +3,5 @@
 <% @weeks.each do |week| %>
   <li><%= link_to week.week_day_date, week_path(week) %></li>
 <% end %>
+
+<br><%= link_to('Create a new week', new_week_path) %>

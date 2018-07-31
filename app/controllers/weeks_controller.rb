@@ -1,8 +1,8 @@
 class WeeksController < ApplicationController
-  before_action :set_week!, only: [:show, :edit, :update, :destroy]
+  before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   def index
-    @weeks = Week.all
+    @weeks = Week.all.order('created_at DESC')
   end
 
   def new
@@ -11,11 +11,12 @@ class WeeksController < ApplicationController
 
   def create
     @week = Week.new(week_params)
-    if @week.valid?
-      @week.save
-      redirect_to week_path(@week)
-    else
-      render :new
+    respond_to do |format|
+      if @week.save
+        format.html { redirect_to @week, notice: 'Week was successfully created.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 
@@ -26,24 +27,25 @@ class WeeksController < ApplicationController
   end
 
   def update
-    if @week.update(week_params)
-      redirect_to week_path(@week)
-    else
-      render :edit
+    respond_to do |format|
+      if @week.update(week_params)
+        format.html { redirect_to @week, notice: 'Week was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
     end
   end
 
   def destroy
     @week.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Week was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to weeks_url, notice: 'Week was successfully destroyed.' }
     end
   end
 
   private
 
-    def set_week!
+    def set_week
       @week = Week.find(params[:id])
     end
 

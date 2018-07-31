@@ -2,7 +2,7 @@ class MonthsController < ApplicationController
   before_action :set_month, only: [:show, :edit, :update, :destroy]
 
   def index
-    @months = Month.all
+    @months = Month.all.order('created_at DESC')
   end
 
   def new
