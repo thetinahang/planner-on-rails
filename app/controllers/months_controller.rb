@@ -2,6 +2,7 @@ class MonthsController < ApplicationController
   before_action :set_month, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = User.find(current_user.id)
     @months = Month.all.order('created_at DESC')
   end
 
@@ -65,7 +66,8 @@ class MonthsController < ApplicationController
         :month_win_3, 
         :month_insight_1, 
         :month_insight_2, 
-        :month_insight_3)
+        :month_insight_3,
+        :user_id)
     end
 
 end
