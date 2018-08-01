@@ -2,16 +2,15 @@ class MonthsController < ApplicationController
   before_action :set_month, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user = User.find(current_user.id)
     @months = Month.all.order('created_at DESC')
   end
 
   def new
-    @month = Month.new
+    @month = current_user.months.build
   end
 
   def create
-    @month = Month.new(month_params)
+    @month = current_user.months.new(month_params)
     respond_to do |format|
       if @month.save
         format.html { redirect_to @month, notice: 'Month was successfully created.' }
