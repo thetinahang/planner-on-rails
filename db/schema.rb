@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801042449) do
+ActiveRecord::Schema.define(version: 20180802141015) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_day_date"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20180801042449) do
     t.string "week_goal_5"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "week_number"
   end
 
 end

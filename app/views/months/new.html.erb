@@ -49,8 +49,8 @@
 	3. <%= f.text_field :month_insight_3 %><br>
 
 	<%= f.fields_for :weeks do |week| %>
-		<%= addr.label :week_type %>
-    	<%= addr.text_field :week_type %><br>
+		<%= week.label :week_number %>
+    	<%= week.text_field :week_number %><br>
 
 	    <%= week.label :week_day_date %>
 	    <%= week.text_field :week_day_date %><br>
