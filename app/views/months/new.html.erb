@@ -47,6 +47,15 @@
 	1. <%= f.text_field :month_insight_1 %><br>
 	2. <%= f.text_field :month_insight_2 %><br>
 	3. <%= f.text_field :month_insight_3 %><br>
+
+	<%= f.fields_for :weeks do |week| %>
+		<%= addr.label :week_type %>
+    	<%= addr.text_field :week_type %><br>
+
+	    <%= week.label :week_day_date %>
+	    <%= week.text_field :week_day_date %><br>
+	    
+	<% end %>
  
 	<%= f.submit %>
 <% end %>

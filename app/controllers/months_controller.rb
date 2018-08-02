@@ -7,6 +7,10 @@ class MonthsController < ApplicationController
 
   def new
     @month = current_user.months.build
+    @month.weeks.build(week_type: '1')
+    @month.weeks.build(week_type: '2')
+    @month.weeks.build(week_type: '3')
+    @month.weeks.build(week_type: '4')
   end
 
   def create
@@ -66,7 +70,12 @@ class MonthsController < ApplicationController
         :month_insight_1, 
         :month_insight_2, 
         :month_insight_3,
-        :user_id)
+        :user_id,
+        weeks_attributes: [
+          :week_type,
+          :week_day_date
+        ]
+        )
     end
 
 end
