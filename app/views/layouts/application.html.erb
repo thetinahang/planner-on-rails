@@ -11,9 +11,12 @@
   <body>
     <% if user_signed_in? %>
       <%= render 'layouts/sign_in' %>
+      <%= yield %>
+      <%= render 'layouts/new_links' %>
     <% else %>
       <%= render 'layouts/header' %>
+      <%= yield %>
     <% end %>
-    <%= yield %>
+    
   </body>
 </html>

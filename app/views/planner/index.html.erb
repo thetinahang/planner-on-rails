@@ -2,8 +2,9 @@
 
 <body>
   <% if user_signed_in? %>
-      <%= link_to "Months", months_path %>
-      <%= link_to "Weeks", weeks_path %>
-      <%= link_to "Days", days_path %>
+  	<h2><%= current_user.email %>'s months:</h2>
+  		<% @months.each do |month| %>
+  			<li><%= link_to month.month_name, month_path(month) %></li>
+		<% end %><br>
   <% end %>
 </body>
