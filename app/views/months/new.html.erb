@@ -48,7 +48,8 @@
 	2. <%= f.text_field :month_insight_2 %><br>
 	3. <%= f.text_field :month_insight_3 %><br>
 
-	<%= f.fields_for :weeks do |week| %>
+	<label>Weeks for this month:</label>
+	<%= f.fields_for :weeks do |week| %><br>
 		<%= week.label :week_number %>
     	<%= week.text_field :week_number %><br>
 

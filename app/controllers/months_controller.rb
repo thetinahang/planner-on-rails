@@ -75,7 +75,7 @@ class MonthsController < ApplicationController
           :week_number,
           :week_day_date
         ]
-        )
+      )
     end
 
 end
