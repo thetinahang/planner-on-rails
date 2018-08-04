@@ -5,6 +5,6 @@
   	<h2><%= current_user.email %>'s months:</h2>
   		<% @months.each do |month| %>
   			<li><%= link_to month.month_name, month_path(month) %></li>
-		<% end %><br>
+  		<% end %><br>
   <% end %>
 </body>
