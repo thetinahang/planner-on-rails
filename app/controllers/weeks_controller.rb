@@ -3,7 +3,6 @@ class WeeksController < ApplicationController
 
   def index
     @weeks = Week.all.order('created_at DESC')
-    @user = current_user.email
   end
 
   def new
