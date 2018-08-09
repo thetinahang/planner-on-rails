@@ -85,9 +85,6 @@
 
 	<label>Improvement for Tomorrow: </label><br>
 	<%= f.text_field :day_improvement %><br>
-
-	<label>Belongs to: </label>
-	<%= f.collection_select :weekday_day_date, Week.all, :week_day_date, :id %>
  
 	<%= f.submit %>
 <% end %>

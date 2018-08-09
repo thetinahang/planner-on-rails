@@ -3,6 +3,7 @@ class WeeksController < ApplicationController
 
   def index
     @weeks = Week.all.order('created_at DESC')
+    @user = current_user.email
   end
 
   def new
@@ -77,6 +78,7 @@ class WeeksController < ApplicationController
         :week_goal_2,
         :week_goal_3,
         :week_goal_4,
-        :week_goal_5)
+        :week_goal_5,
+        month_ids:[], months_attributes: [:month_name])
     end
 end
