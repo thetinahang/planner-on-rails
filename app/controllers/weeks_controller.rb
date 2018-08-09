@@ -2,14 +2,16 @@ class WeeksController < ApplicationController
   before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   def index
-    @weeks = Week.all.order('created_at DESC')
+    @weeks = current_user.weeks.all.order('created_at DESC')
   end
 
   def new
+    @user_id = current_user.id
     @week = Week.new
   end
 
   def create
+    @user_id = current_user.id
     @week = Week.new(week_params)
     respond_to do |format|
       if @week.save
@@ -81,6 +83,7 @@ class WeeksController < ApplicationController
         :week_goal_3,
         :week_goal_4,
         :week_goal_5,
-        month_ids:[], months_attributes: [:month_name])
+        month_ids:[], months_attributes: [:month_name],
+        :user_id)
     end
 end

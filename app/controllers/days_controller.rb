@@ -2,7 +2,8 @@ class DaysController < ApplicationController
   before_action :set_day, only: [:show, :edit, :update, :destroy]
 
   def index
-    @days = Day.all.order('created_at DESC')
+    @user = current_user
+    @days = @user.days.all.order('created_at DESC')
   end
 
   def new

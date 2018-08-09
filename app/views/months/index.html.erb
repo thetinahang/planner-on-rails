@@ -1,5 +1,9 @@
-<h1>Here are all of your months:</h1>
-
+<h1>Here are some of your recent month entries:</h1>
 <% @months.each do |month| %>
+  <li><%= link_to month.month_name, month_path(month) %></li>
+<% end %>
+
+<h3>Don't see a month you're looking for?</h3>
+<% @months_all.each do |month| %>
   <li><%= link_to month.month_name, month_path(month) %></li>
 <% end %>

@@ -32,6 +32,16 @@
 	1. <%= f.text_field :month_insight_1 %><br>
 	2. <%= f.text_field :month_insight_2 %><br>
 	3. <%= f.text_field :month_insight_3 %><br>
+
+	<label>Weeks for this month:</label>
+	<%= f.fields_for :weeks do |week| %><br>
+		<%= week.label :week_number %>
+    	<%= week.text_field :week_number %><br>
+
+	    <%= week.label :week_day_date %>
+	    <%= week.text_field :week_day_date %><br>
+	    
+	<% end %>
  
 	<%= f.submit %>
 <% end %>

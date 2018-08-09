@@ -5,7 +5,7 @@ class Month < ActiveRecord::Base
 
 	accepts_nested_attributes_for :weeks
 	has_many :days, through: :weeks
-	belongs_to :user, optional: false #need to figure out this part
+	belongs_to :user, optional: true  #need to figure out this part
 	validates :month_name, presence: true
 
 	def self.first_five

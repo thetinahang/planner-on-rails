@@ -2,7 +2,9 @@ class MonthsController < ApplicationController
   before_action :set_month, only: [:show, :edit, :update, :destroy]
 
   def index
-    @months = Month.all.order('created_at DESC')
+    @user = current_user
+    @months = @user.months.first_five
+    @months_all = @user.months.all.order('created_at DESC')
   end
 
   def new
@@ -50,7 +52,8 @@ class MonthsController < ApplicationController
   private
 
     def set_month
-      @month = Month.find(params[:id])
+      @user = current_user
+      @month = @user.months.find(params[:id])
     end
 
     def month_params
