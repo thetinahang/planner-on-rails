@@ -21,6 +21,9 @@ class WeeksController < ApplicationController
   end
 
   def show
+    #@games = Game.joins(:categorization).where('categorization.provider_id = ?',@provider.id)
+    @weeks_months_ids = @week.months.ids
+    #@months = Month.joins(:months_weeks).where('months_weeks.month_ids = ?',@month.id)
   end
 
   def edit
