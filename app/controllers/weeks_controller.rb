@@ -2,16 +2,18 @@ class WeeksController < ApplicationController
   before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   def index
-    @weeks = current_user.weeks.all.order('created_at DESC')
+    @user = current_user
+    @weeks = @user.weeks.all
+    @weeks_all = @user.weeks.all.order('created_at DESC')
   end
 
   def new
-    @user_id = current_user.id
+    @user = current_user
     @week = Week.new
+    @week.user_id = @user.id
   end
 
   def create
-    @user_id = current_user.id
     @week = Week.new(week_params)
     respond_to do |format|
       if @week.save
@@ -24,6 +26,8 @@ class WeeksController < ApplicationController
 
   def show
     #@games = Game.joins(:categorization).where('categorization.provider_id = ?',@provider.id)
+    @user = current_user
+    @week.user_id = @user.id
     @weeks_months_ids = @week.months.ids
     #@months = Month.joins(:months_weeks).where('months_weeks.month_ids = ?',@month.id)
   end
@@ -55,7 +59,9 @@ class WeeksController < ApplicationController
     end
 
     def week_params
-      params.require(:week).permit(:week_day_date, 
+      params.require(:week).permit(
+        :user_id,
+        :week_day_date, 
         :week_big_win_1,
         :week_big_win_2,
         :week_big_win_3,
@@ -83,7 +89,6 @@ class WeeksController < ApplicationController
         :week_goal_3,
         :week_goal_4,
         :week_goal_5,
-        month_ids:[], months_attributes: [:month_name],
-        :user_id)
+        month_ids:[], months_attributes: [:month_name])
     end
 end
