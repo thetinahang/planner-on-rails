@@ -73,12 +73,6 @@
  	<label>Belongs to which months?</label><br>
  	<%= f.collection_check_boxes :month_ids, Month.all, :id, :month_name %>
     <br>
-    <label>If you don't see the month you're looking for, create one below:</label><br>
-    <%= f.fields_for :months, @week.months.build do |month_fields| %>
-    	<%= month_fields.label :month_name, "New Month Name" %>
-    	<%= month_fields.text_field :month_name %>
-    <% end %><br>
-
 
 	<%= f.submit %>
 <% end %>
