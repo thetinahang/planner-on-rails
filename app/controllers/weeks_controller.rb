@@ -3,7 +3,7 @@ class WeeksController < ApplicationController
 
   def index
     @user = current_user
-    @weeks = @user.weeks.all
+    @weeks = @user.weeks
     @weeks_all = @user.weeks.all.order('created_at DESC')
   end
 
