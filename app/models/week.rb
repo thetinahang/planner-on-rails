@@ -8,7 +8,7 @@ class Week < ActiveRecord::Base
 	belongs_to :month, optional: true #need to figure out this part
 	validates :week_day_date, presence: true, allow_blank: false
 
-	belongs_to :user, optional: true
+	belongs_to :user, optional: false
 	
 
 	def months_attributes=(month_attributes)

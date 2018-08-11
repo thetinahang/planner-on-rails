@@ -1,5 +1,5 @@
 <h1>New Week Form</h1>
-<%= @user.id%>
+
 
 <% if @week.errors.any? %> 
   <div id="error_explanation">
@@ -19,6 +19,9 @@
 <%= form_for(@week) do |f| %>
 	<label>Day and date:</label><br>
 	<%= f.text_field :week_day_date %><br>
+
+	<label>Your user id in the box below:</label><br>
+	<%= f.text_field :user_id %><br>
  
 	<label>Wins of the previous week: </label><br>
 	1. <%= f.text_field :week_big_win_1 %><br>

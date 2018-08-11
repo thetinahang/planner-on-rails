@@ -3,7 +3,9 @@ class WeeksController < ApplicationController
 
   def index
     @user = current_user
-    @weeks = @user.weeks
+    @weeks = Week.where(user_id: @user.id)
+    #@weeks = @user.weeks
+
     @weeks_all = @user.weeks.all.order('created_at DESC')
   end
 
@@ -26,8 +28,9 @@ class WeeksController < ApplicationController
 
   def show
     #@games = Game.joins(:categorization).where('categorization.provider_id = ?',@provider.id)
-    @user = current_user
-    @week.user_id = @user.id
+    #@user = current_user
+    @test = @week.user_id
+    #@week.user_id = @user.id
     @weeks_months_ids = @week.months.ids
     #@months = Month.joins(:months_weeks).where('months_weeks.month_ids = ?',@month.id)
   end
