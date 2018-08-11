@@ -10,11 +10,19 @@ Rails.application.routes.draw do
   resources :hours #, only: [:index, :show, :new, :create, :edit]
   #patch 'hours/:id', to: 'hours#update'
 
-  resources :months #, only: [:index, :show, :new, :create, :edit]
+  resources :months do 
+    resources :weeks, only: [:show, :index]
+  end
+
+  #, only: [:index, :show, :new, :create, :edit]
   #patch 'months/:id', to: 'months#update'
 
   resources :weeks #, only: [:index, :show, :new, :create, :edit]
   #patch 'weeks/:id', to: 'weeks#update'
+
+  #get 'months/:id/weeks', to: 'months#weeks_index'
+  #get 'months/:id/weeks/:id', to: 'months#week'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

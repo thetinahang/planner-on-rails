@@ -50,6 +50,7 @@ class MonthsController < ApplicationController
     end
   end
 
+
   private
 
     def set_month
