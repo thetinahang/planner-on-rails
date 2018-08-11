@@ -1,0 +1,49 @@
+<%= form_for(@month) do |f| %>
+	<label>Month:</label><br>
+	<%= f.text_field :month_name %><br>
+
+	<label>Focus: </label><br>
+	<%= f.text_field :month_focus %><br>
+
+	<label>Habit: </label><br>
+	<%= f.text_field :month_habit %><br>
+ 
+	<label>Goals for the month:</label><br>
+	1. <%= f.text_field :month_goal_1 %><br>
+	2. <%= f.text_field :month_goal_2 %><br>
+	3. <%= f.text_field :month_goal_3 %><br>
+
+	<label>Distractions to avoid:</label><br>
+	1. <%= f.text_field :month_distraction_1 %><br>
+	2. <%= f.text_field :month_distraction_2 %><br>
+	3. <%= f.text_field :month_distraction_3 %><br>
+
+	<label>Notes: </label><br>
+	<%= f.text_field :month_notes %><br>
+
+	<label>Wins of the month:</label><br>
+	1. <%= f.text_field :month_win_1 %><br>
+	2. <%= f.text_field :month_win_2 %><br>
+	3. <%= f.text_field :month_win_3 %><br>
+
+	<label>Insights:</label><br>
+	1. <%= f.text_field :month_insight_1 %><br>
+	2. <%= f.text_field :month_insight_2 %><br>
+	3. <%= f.text_field :month_insight_3 %><br>
+
+	<label>Weeks for this month:</label>
+	<%= f.fields_for :weeks do |week| %><br>
+		<%= week.label :week_number %>
+    	<%= week.text_field :week_number %><br>
+
+	    <%= week.label :week_day_date %>
+	    <%= week.text_field :week_day_date %><br>
+
+	    <label> Enter your user ID, <%= @month.user_id %>, in the box:</label>
+	    <%= week.text_field :user_id %><br>
+	    
+	<% end %>
+ 
+	<%= f.submit %>
+
+<% end %>
