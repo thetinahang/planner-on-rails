@@ -8,7 +8,7 @@ class Month < ActiveRecord::Base
 	belongs_to :user, optional: true  #need to figure out this part
 	validates :month_name, presence: true
 
-	def self.first_five
+	def self.recent_five
 		order('updated_at DESC').limit(5)
 	end
 	

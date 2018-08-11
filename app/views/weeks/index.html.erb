@@ -1,9 +1,5 @@
-
-<%=@test%>
 <h1>Here are all of your weeks:</h1>
 
 <% @weeks.all.each do |week| %>
   <li><%= link_to week.week_day_date, week_path(week) %></li>
 <% end %>
-
-<p>not working</p>

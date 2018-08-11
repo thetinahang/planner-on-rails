@@ -32,7 +32,7 @@
 <div>
 	<h2>Weeks of this month:</h2>
 		<% @month.weeks.each do |week| %>
-  			<p><%= "#{week.week_number}. #{week.week_day_date}" %></p>
+  			<p><%= "#{week.week_number}. "%><%= link_to week.week_day_date, week_path(week) %></p>
 		<% end %>
 </div>
 

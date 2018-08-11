@@ -3,7 +3,7 @@ class MonthsController < ApplicationController
 
   def index
     @user = current_user
-    @months = @user.months.first_five
+    @months = @user.months.recent_five
     @months_all = @user.months.all.order('created_at DESC')
   end
 
@@ -13,6 +13,7 @@ class MonthsController < ApplicationController
     @month.weeks.build(week_number: '2')
     @month.weeks.build(week_number: '3')
     @month.weeks.build(week_number: '4')
+    @month.user_id = current_user.id
   end
 
   def create
@@ -76,7 +77,8 @@ class MonthsController < ApplicationController
         :user_id,
         weeks_attributes: [
           :week_number,
-          :week_day_date
+          :week_day_date,
+          :user_id
         ]
       )
     end

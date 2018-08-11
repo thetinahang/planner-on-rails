@@ -3,11 +3,13 @@ class DaysController < ApplicationController
 
   def index
     @user = current_user
-    @days = @user.days.all.order('created_at DESC')
+    @days = Day.where(user_id: @user.id).all.order('created_at DESC')
   end
 
   def new
+    @user = current_user
     @day = Day.new
+    @day.user_id = @user.id
   end
 
   def create
@@ -47,11 +49,13 @@ class DaysController < ApplicationController
   private
 
     def set_day
-      @day = Day.find(params[:id])
+      @user = current_user
+      @day = @user.days.find(params[:id])
     end
 
     def day_params
       params.require(:day).permit(:day_day_date, 
+        :user_id,
         :day_grateful_1,
         :day_grateful_2, 
         :day_grateful_3,

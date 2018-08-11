@@ -3,10 +3,7 @@ class WeeksController < ApplicationController
 
   def index
     @user = current_user
-    @weeks = Week.where(user_id: @user.id)
-    #@weeks = @user.weeks
-
-    @weeks_all = @user.weeks.all.order('created_at DESC')
+    @weeks = Week.where(user_id: @user.id).all.order('created_at DESC')
   end
 
   def new
@@ -27,12 +24,8 @@ class WeeksController < ApplicationController
   end
 
   def show
-    #@games = Game.joins(:categorization).where('categorization.provider_id = ?',@provider.id)
-    #@user = current_user
-    @test = @week.user_id
-    #@week.user_id = @user.id
+    @id = @week.user_id
     @weeks_months_ids = @week.months.ids
-    #@months = Month.joins(:months_weeks).where('months_weeks.month_ids = ?',@month.id)
   end
 
   def edit
@@ -58,7 +51,8 @@ class WeeksController < ApplicationController
   private
 
     def set_week
-      @week = Week.find(params[:id])
+      @user = current_user
+      @week = @user.weeks.find(params[:id])
     end
 
     def week_params
