@@ -1,7 +1,7 @@
 <h1>New Month Form</h1>
 
 <% if @month.errors.any? %>
-  <div id="fields_with_errors">
+  <div id="error_explanation">
     <h2>
       <%= pluralize(@month.errors.count, "error") %>
       prohibited this month from being saved:

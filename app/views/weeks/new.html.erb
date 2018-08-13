@@ -2,7 +2,7 @@
 
 
 <% if @week.errors.any? %> 
-  <div id="fields_with_errors">
+  <div id="error_explanation">
     <h2>
       <%= pluralize(@week.errors.count, "error") %>
       prohibited this week from being saved:
