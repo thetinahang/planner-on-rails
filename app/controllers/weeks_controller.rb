@@ -28,6 +28,7 @@ class WeeksController < ApplicationController
   end
 
   def create
+    @user = current_user
     @week = Week.new(week_params)
     respond_to do |format|
       if @week.save
