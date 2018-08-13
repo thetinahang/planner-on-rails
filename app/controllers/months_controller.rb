@@ -77,6 +77,7 @@ class MonthsController < ApplicationController
         :month_insight_3,
         :user_id,
         weeks_attributes: [
+          :id,
           :week_number,
           :week_day_date,
           :user_id
