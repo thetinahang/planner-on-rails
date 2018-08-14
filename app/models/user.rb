@@ -15,9 +15,10 @@ class User < ApplicationRecord
   end
 
   has_many :months
-  accepts_nested_attributes_for :months
+  
+  #accepts_nested_attributes_for :months
 
-  has_many :weeks
+  #has_many :weeks
 
-  has_many :days
+  #has_many :days
 end

@@ -39,8 +39,7 @@
 	    <%= week.label :week_day_date %>
 	    <%= week.text_field :week_day_date %><br>
 
-	    <label> Enter your user ID, <%= @month.user_id %>, in the box:</label>
-	    <%= week.text_field :user_id %><br>
+	    <%= week.hidden_field :user_id, :value => @month.user_id %>
 	    
 	<% end %>
  

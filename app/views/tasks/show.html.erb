@@ -1,0 +1,8 @@
+<h2>Task:  <%= @task.task_content %> </h2>
+
+<%= link_to("Edit #{@task.task_content}", edit_task_path) %><br>
+<%= link_to("Delete #{@task.task_content}", task_path(@task), method: :delete, data: { confirm: 'Are you sure?' } ) %>
+
+
+
+
