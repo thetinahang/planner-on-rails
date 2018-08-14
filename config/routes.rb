@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root 'planner#index'
   resources :planner
   #need to connect landing page with a new page when signed in 

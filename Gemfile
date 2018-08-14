@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
-gem 'omniauth-facebook'
+gem 'omniauth-github'
 gem 'dotenv-rails'
 gem 'bootstrap-sass'
 gem 'jquery-rails'

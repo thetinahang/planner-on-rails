@@ -2,9 +2,6 @@ class WeeksController < ApplicationController
   before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   def index
-    #@user = current_user
-    #@weeks = Week.where(user_id: @user.id).all.order('created_at DESC')
-
     if params[:month_id]
       @user = current_user
       @weeks = @user.months.find(params[:month_id]).weeks
@@ -12,13 +9,6 @@ class WeeksController < ApplicationController
       @user = current_user
       @weeks = Week.where(user_id: @user.id).all.order('created_at DESC')
     end 
-
-    #if params[:author_id]
-     # @posts = Author.find(params[:author_id]).posts
-    #else
-     # @posts = Post.all
-    #end
-
   end
 
   def new
