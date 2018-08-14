@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 
