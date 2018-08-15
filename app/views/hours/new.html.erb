@@ -1,5 +1,20 @@
 <h1>New Hour Form</h1>
 
+<% if @hour.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@hour.errors.count, "error") %>
+      prohibited this hour from being saved:
+    </h2>
+ 
+    <ul>
+    <% @hour.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@hour) do |f| %>
 	<label>Hour number:</label><br>
 	<%= f.text_field :hour_number %><br>

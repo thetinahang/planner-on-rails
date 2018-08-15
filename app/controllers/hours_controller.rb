@@ -1,5 +1,5 @@
 class HoursController < ApplicationController
-  before_action :set_hour!, only: [:show, :edit, :update, :destroy]
+  before_action :set_hour, only: [:show, :edit, :update, :destroy]
 
   def index
     @hours = Hour.all
@@ -36,14 +36,14 @@ class HoursController < ApplicationController
   def destroy
     @hour.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Hour was successfully destroyed.' }
+      format.html { redirect_to hours_url, notice: 'Hour was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
 
-    def set_hour!
+    def set_hour
       @hour = Hour.find(params[:id])
     end
 

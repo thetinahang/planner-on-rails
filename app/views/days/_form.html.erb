@@ -60,6 +60,8 @@
 	9. <%= f.text_field :day_task_9 %><br>
 	10. <%= f.text_field :day_task_10 %><br>
 
+	
+
 	<label>Notes: </label><br>
 	<%= f.text_field :day_notes %><br>
 
@@ -70,6 +72,18 @@
 
 	<label>Improvement for Tomorrow: </label><br>
 	<%= f.text_field :day_improvement %><br>
+
+	<label>Tasks: </label><br>
+	<%= f.collection_check_boxes :task_ids, Task.all, :id, :task_content, include_blank: 'Try' %><br>
+
+	<label>Hours through Tasks: </label><br>
+	<%= f.collection_check_boxes :hour_ids, Hour.all, :id, :hour_number, include_blank: 'Try' %><br>
+
+	<label>Or create a Hour through Tasks: </label><br>
+	<%= f.fields_for :hours, @day.hours.build do |hours_fields| %>
+		<%= hours_fields.text_field :hour_number %>
+	<% end %>
+
  
 	<%= f.submit %>
 <% end %>

@@ -1,0 +1,10 @@
+<h1>Here are all of your hours:</h1>
+
+<% @hours.each do |hour| %>
+  <li><%= link_to hour.hour_number, hour_path(hour) %></li>
+<% end %>
+
+
+
+
+

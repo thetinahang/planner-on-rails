@@ -112,6 +112,6 @@ class DaysController < ApplicationController
         :day_win_1,
         :day_win_2,
         :day_win_3,
-        :day_improvement)
+        :day_improvement, task_ids:[], hour_ids:[], hours_attributes: [:hour_number])
     end
 end

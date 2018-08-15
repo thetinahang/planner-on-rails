@@ -55,6 +55,12 @@
 		<p>8. <%= @day.day_task_8 %></p>
 		<p>9. <%= @day.day_task_9 %></p>
 		<p>10. <%= @day.day_task_10 %></p>
+	<h2>Tasks through hours</h2>
+		<% @day.tasks.each do |task| %>
+			<%= link_to task.hour.hour_number, hour_path(task.hour) %>
+		    <%= task.task_content %>
+		<% end %>
+
 </div>
 
 <div>
