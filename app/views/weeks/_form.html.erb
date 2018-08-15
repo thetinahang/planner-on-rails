@@ -2,8 +2,7 @@
 	<label>Day and date:</label><br>
 	<%= f.text_field :week_day_date %><br>
 
-	<label>Your user id in the box below:</label><br>
-	<%= f.text_field :user_id %><br>
+	<%= f.hidden_field :user_id, :value => @user.id %>
  
 	<label>Wins of the previous week: </label><br>
 	1. <%= f.text_field :week_big_win_1 %><br>
@@ -56,9 +55,7 @@
 	4. <%= f.text_field :week_goal_4 %><br>
 	5. <%= f.text_field :week_goal_5 %><br>
 
- 	<label>Belongs to which months?</label><br>
- 	<%= f.collection_check_boxes :month_ids, @user.months.all, :id, :month_name %>
-    <br>
+
 
 	<%= f.submit %>
 <% end %>

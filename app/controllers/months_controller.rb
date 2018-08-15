@@ -9,11 +9,11 @@ class MonthsController < ApplicationController
 
   def new
     @month = current_user.months.build
-    @month.weeks.build(week_number: '1')
-    @month.weeks.build(week_number: '2')
-    @month.weeks.build(week_number: '3')
-    @month.weeks.build(week_number: '4')
-    @month.user_id = current_user.id
+    #@month.weeks.build(week_number: '1')
+    #@month.weeks.build(week_number: '2')
+    #@month.weeks.build(week_number: '3')
+    #@month.weeks.build(week_number: '4')
+    #@month.user_id = current_user.id
   end
 
   def create
@@ -28,6 +28,11 @@ class MonthsController < ApplicationController
   end
 
   def show
+    if @month.user_id == current_user.id
+      render :show
+    else
+      render 'planner/index'
+    end
   end
 
   def edit
@@ -75,13 +80,7 @@ class MonthsController < ApplicationController
         :month_insight_1, 
         :month_insight_2, 
         :month_insight_3,
-        :user_id,
-        weeks_attributes: [
-          :id,
-          :week_number,
-          :week_day_date,
-          :user_id
-        ]
+        :user_id
       )
     end
 

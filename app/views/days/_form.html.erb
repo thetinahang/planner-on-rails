@@ -2,8 +2,7 @@
 	<label>Day and date:</label><br>
 	<%= f.text_field :day_day_date %><br>
 
-	<label>Your user id in the box below:</label><br>
-	<%= f.text_field :user_id %><br>
+	<%= f.hidden_field :user_id, :value => @user.id %>
  
 	<label>3 things you are grateful for</label><br>
 	1. <%= f.text_field :day_grateful_1 %><br>

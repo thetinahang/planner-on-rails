@@ -13,6 +13,7 @@ class DaysController < ApplicationController
   end
 
   def create
+    @user = current_user
     @day = Day.new(day_params)
     respond_to do |format|
       if @day.save
@@ -24,9 +25,19 @@ class DaysController < ApplicationController
   end
 
   def show
+    if @day.user_id == current_user.id
+      render :show
+    else
+      render 'planner/index'
+    end
   end
 
   def edit
+    if @day.user_id == current_user.id
+      render :edit
+    else
+      render 'planner/index'
+    end
   end
 
   def update
@@ -50,7 +61,8 @@ class DaysController < ApplicationController
 
     def set_day
       @user = current_user
-      @day = @user.days.find(params[:id])
+      #@day = @user.days.find(params[:id])
+      @day = Day.find(params[:id])
     end
 
     def day_params
