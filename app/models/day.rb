@@ -8,6 +8,12 @@ class Day < ActiveRecord::Base
 
 	validates :day_day_date, presence: true
 
+	def tasks_attributes=(task_attributes)
+		task_attributes.values.each do |task_attribute|
+			task = Task.find_or_create_by(task_attribute)
+			self.tasks << task
+		end
+	end
 
 	def hours_attributes=(hour_attributes)
 		hour_attributes.values.each do |hour_attribute|
