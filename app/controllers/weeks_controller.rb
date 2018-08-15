@@ -2,17 +2,18 @@ class WeeksController < ApplicationController
   before_action :set_week, only: [:show, :edit, :update, :destroy]
 
   def index
-#    if params[:month_id]
-#      @user = current_user
-#      @weeks = @user.months.find(params[:month_id]).weeks
-#    else 
+    if params[:month_id]
+      @user = current_user
+      @weeks = @user.months.find(params[:month_id]).weeks
+    else 
       @user = current_user
       @weeks = Week.where(user_id: @user.id).all.order('created_at DESC')
-#    end 
+    end 
   end
 
   def new
     @user = current_user
+    #@months = @user.months.ids
     @week = Week.new
     @week.user_id = @user.id
   end
@@ -31,7 +32,7 @@ class WeeksController < ApplicationController
 
   def show
     #@id = @week.user_id
-    #@weeks_months_ids = @week.months.ids
+    @weeks_months_ids = @week.months.ids
     if @week.user_id == current_user.id
       render :show
     else
@@ -104,6 +105,6 @@ class WeeksController < ApplicationController
         :week_goal_3,
         :week_goal_4,
         :week_goal_5,
-        month_ids:[], months_attributes: [:month_name])
+        month_ids:[])
     end
 end

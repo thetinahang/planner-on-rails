@@ -3,6 +3,8 @@ class Month < ActiveRecord::Base
 	has_many :weeks
 	belongs_to :user, optional: false  #need to figure out this part
 
+	accepts_nested_attributes_for :weeks
+
 	validates :month_name, presence: true
 	validates :user_id, presence: true
 

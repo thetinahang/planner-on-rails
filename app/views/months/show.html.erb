@@ -31,6 +31,12 @@
 		<p>3. <%= @month.month_insight_3 %></p>
 </div>
 
+<div>
+	<h2>Weeks of this month:</h2>
+		<% @month.weeks.each do |week| %>
+  			<p><%= "#{week.week_number}. "%><%= link_to week.week_day_date, week_path(week) %></p>
+		<% end %>
+</div>
 
 <%= link_to("Edit #{@month.month_name}", edit_month_path) %><br>
 <%= link_to("Delete #{@month.month_name}", month_path(@month), method: :delete, data: { confirm: 'Are you sure?' } ) %>

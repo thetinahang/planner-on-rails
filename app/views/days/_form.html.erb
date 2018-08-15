@@ -73,18 +73,14 @@
 	<label>Improvement for Tomorrow: </label><br>
 	<%= f.text_field :day_improvement %><br>
 
-	<label>Tasks: </label><br>
-	<%= f.collection_check_boxes :task_ids, Task.all, :id, :task_content %><br>
-
-	<label>Or create a new Task: </label><br>
-	<%= f.fields_for :tasks, @day.tasks.build do |tasks_fields| %>
-		<%= tasks_fields.text_field :task_content %><br>
-	<% end %>
 
 	<label>Hours through Tasks: </label><br>
 	<%= f.collection_check_boxes :hour_ids, Hour.all, :id, :hour_number, include_blank: 'Try' %><br>
 
-
+	<label>Or create a new Hour: </label><br>
+	<%= f.fields_for :hours, @day.hours.build do |hours_fields| %>
+		<%= hours_fields.text_field :hour_number %>
+	<% end %>
  
 	<%= f.submit %>
 <% end %>

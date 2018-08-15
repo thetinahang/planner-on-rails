@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #patch 'hours/:id', to: 'hours#update'
 
   resources :months do 
-    resources :weeks, only: [:show, :index, :new]
+    resources :weeks, only: [:show, :index, :new] #
   end
 
   #, only: [:index, :show, :new, :create, :edit]
