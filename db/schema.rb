@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815012338) do
+ActiveRecord::Schema.define(version: 20180815154530) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_day_date"
@@ -92,10 +92,12 @@ ActiveRecord::Schema.define(version: 20180815012338) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "task_content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "day_id"
     t.integer "hour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_tasks_on_day_id"
+    t.index ["hour_id"], name: "index_tasks_on_hour_id"
   end
 
   create_table "users", force: :cascade do |t|
