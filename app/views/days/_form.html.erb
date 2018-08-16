@@ -75,8 +75,16 @@
 
 
 	<label>Hours through Tasks: </label><br>
-	<%= f.collection_check_boxes :hour_ids, Hour.all, :id, :hour_number, include_blank: 'Try' %><br>
+	<%= f.collection_check_boxes :hour_ids, Hour.all, :id, :hour_number%><br>
 
+	<%= f.text_field :hour_ids, list: "hours_autocomplete" %>heelo
+		<datalist id="hours_autocomplete">
+			<% Hour.all.each do |hour| %>
+				<option value="<%= hour.hour_number %>">
+			<% end %>
+		</datalist>
+
+	<br>
 	<label>Or create a new Hour: </label><br>
 	<%= f.fields_for :hours, @day.hours.build do |hours_fields| %>
 		<%= hours_fields.text_field :hour_number %>
