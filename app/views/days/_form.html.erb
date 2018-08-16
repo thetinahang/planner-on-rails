@@ -46,8 +46,17 @@
 	6PM: <%= f.text_field :day_hour_18 %><br>
 	7PM: <%= f.text_field :day_hour_19 %><br>
 	8PM: <%= f.text_field :day_hour_20 %><br>
-	9PM: <%= f.text_field :day_hour_21 %><br>
+	9PM: <%= f.text_field :day_hour_21 %><br><br>
 
+	<label>Hours and Task Content:</label><br>
+	<% Hour.all.each do |hour|%>
+		<%= hour.hour_number %>
+		<%= f.fields_for :tasks, Task.new do |task| %>
+			<%= task.text_field :task_content %> <br>
+		<% end %>
+	<% end %>
+
+	<br>
 	<label>Tasks: </label><br>
 	1. <%= f.text_field :day_task_1 %><br>
 	2. <%= f.text_field :day_task_2 %><br>
@@ -74,21 +83,7 @@
 	<%= f.text_field :day_improvement %><br>
 
 
-	<label>Hours through Tasks: </label><br>
-	<%= f.collection_check_boxes :hour_ids, Hour.all, :id, :hour_number%><br>
 
-	<%= f.text_field :hour_ids, list: "hours_autocomplete" %>heelo
-		<datalist id="hours_autocomplete">
-			<% Hour.all.each do |hour| %>
-				<option value="<%= hour.hour_number %>">
-			<% end %>
-		</datalist>
-
-	<br>
-	<label>Or create a new Hour: </label><br>
-	<%= f.fields_for :hours, @day.hours.build do |hours_fields| %>
-		<%= hours_fields.text_field :hour_number %>
-	<% end %>
  
 	<%= f.submit %>
 <% end %>
