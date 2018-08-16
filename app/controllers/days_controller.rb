@@ -9,6 +9,7 @@ class DaysController < ApplicationController
   def new
     @user = current_user
     @day = Day.new
+    @day.tasks.build
     @day.user_id = @user.id
   end
 
@@ -114,6 +115,7 @@ class DaysController < ApplicationController
         :day_win_3,
         :day_improvement,
         tasks_attributes: [
+          :id,
           :task_content])
     end
 end
