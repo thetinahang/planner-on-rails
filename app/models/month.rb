@@ -5,6 +5,9 @@ class Month < ActiveRecord::Base
 
 	accepts_nested_attributes_for :weeks
 
+	has_many :months_weeks
+	has_many :weeks, through: :months_weeks
+	
 	validates :month_name, presence: true
 	validates :user_id, presence: true
 

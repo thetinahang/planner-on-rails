@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815220254) do
+ActiveRecord::Schema.define(version: 20180817155230) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_day_date"
@@ -89,6 +89,12 @@ ActiveRecord::Schema.define(version: 20180815220254) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "week_id"
+  end
+
+  create_table "months_weeks", id: false, force: :cascade do |t|
+    t.integer "month_id", null: false
+    t.integer "week_id", null: false
+    t.index ["month_id", "week_id"], name: "index_months_weeks_on_month_id_and_week_id"
   end
 
   create_table "tasks", force: :cascade do |t|
