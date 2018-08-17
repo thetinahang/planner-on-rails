@@ -51,15 +51,17 @@
 	<label>Hours and Task Content:</label><br>
 	<% Hour.all.each do |hour|%>
 		<%= hour.hour_number %>
-		<%= f.fields_for :tasks, Task.new do |task| %>
+		<%= f.fields_for :tasks do |task| %>
 			<%= task.text_field :task_content %> <br>
+			<%= task.hidden_field :hour_id, :value => hour.id %>
 		<% end %>
 	<% end %>
+	<br>
 
 	<label>New Hours and Task Content:</label><br>
-	<% f.fields_for :hours, Hour.new do |hour|%>
-		<%= hour.text_field :hour_number %>
-		<%= f.fields_for :tasks, Task.new do |task| %>
+	<% f.fields_for :hours do |hour|%>
+		<%= hour.text_field :hour_number %><br>
+		<%= f.fields_for :tasks do |task| %>
 			<%= task.text_field :task_content %> <br>
 		<% end %>
 	<% end %>

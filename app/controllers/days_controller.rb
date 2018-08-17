@@ -16,6 +16,7 @@ class DaysController < ApplicationController
   def create
     @user = current_user
     @day = Day.new(day_params)
+
     respond_to do |format|
       if @day.save
         format.html { redirect_to @day, notice: 'Day was successfully created.' }
@@ -34,11 +35,11 @@ class DaysController < ApplicationController
   end
 
   def edit
-    if @day.user_id == current_user.id
-      render :edit
-    else
-      render 'planner/index'
-    end
+#    if @day.user_id == current_user.id
+#      render :edit
+#    else
+#      render 'planner/index'
+#    end
   end
 
   def update
@@ -116,6 +117,7 @@ class DaysController < ApplicationController
         :day_improvement,
         tasks_attributes: [
           :id,
-          :task_content])
+          :task_content,
+          :hour_id])
     end
 end

@@ -1,12 +1,5 @@
 <h1>Hour: <%= @hour.hour_number %></h1>
-
-<div>
-	<h2><%= @hour.hour_number %> </h2> 
-	 
-	<% @hour.days.each do |day| %>
-	  <%= link_to day.day_day_date, day_path(day) %>
-	<% end %>
-</div>
+<h1>HourID: <%= @hour.id %></h1>
 
 
 <%= link_to("Edit #{@hour.hour_number}", edit_hour_path) %><br>

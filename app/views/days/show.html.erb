@@ -57,11 +57,11 @@
 		<p>10. <%= @day.day_task_10 %></p>
 
 	<h2>TEST</h2>
-		<% @day.tasks.each do |task| %>
-			
-		    <p><%= task.task_content %></p>
+		<% Hour.all.each do |hour| %>			
+			<% @day.tasks.each do |task| %>
+		    	<%= hour.hour_number %>. <%= task.task_content %><br>
+		    <% end %>
 		<% end %>
-
 
 </div>
 
@@ -76,6 +76,6 @@
 		<p><%= @day.day_improvement %></p>
 </div>
 
-<%= link_to("Edit #{@day.day_day_date}", edit_day_path) %><br>
+<%= link_to("Edit #{@day.day_day_date}", edit_day_path(@day)) %><br>
 <%= link_to("Delete #{@day.day_day_date}", day_path(@day), method: :delete, data: { confirm: 'Are you sure?' } ) %>
 
