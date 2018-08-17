@@ -56,18 +56,11 @@
 		<p>9. <%= @day.day_task_9 %></p>
 		<p>10. <%= @day.day_task_10 %></p>
 
-	<h2>TEST</h2>
-		<% Hour.all.each do |hour| %>			
-			<% @day.tasks.each do |task| %>
-		    	<%= hour.hour_number %>. <%= task.task_content %><br>
-		    <% end %>
-		<% end %>
 
-	<h2>New Task Content:</h2><br>
+	<h2>TEST2</h2>	
 		<% @day.tasks.each do |task| %>
-			<%= task.task_content %> <br>
-		<% end %>
-
+	    	<%= task.hour_id %>. <%= task.task_content %><br>
+	    <% end %>
 	<br>
 
 </div>
