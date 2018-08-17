@@ -63,6 +63,13 @@
 		    <% end %>
 		<% end %>
 
+	<h2>New Task Content:</h2><br>
+		<% @day.tasks.each do |task| %>
+			<%= task.task_content %> <br>
+		<% end %>
+
+	<br>
+
 </div>
 
 <div>

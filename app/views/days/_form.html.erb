@@ -49,6 +49,7 @@
 	9PM: <%= f.text_field :day_hour_21 %><br><br>
 
 	<label>Hours and Task Content:</label><br>
+	<p>if I had already generated hours and task is copied for all numbers</p><br>
 	<% Hour.all.each do |hour|%>
 		<%= hour.hour_number %>
 		<%= f.fields_for :tasks do |task| %>
@@ -59,12 +60,23 @@
 	<br>
 
 	<label>New Hours and Task Content:</label><br>
+	<p>want to generate new hours and new tasks at the same time </p>
 	<% f.fields_for :hours, Hour.new do |hour|%>
 		<%= hour.text_field :hour_number %><br>
 		<%= f.fields_for :tasks, Task.new do |task| %>
 			<%= task.text_field :task_content %> <br>
 		<% end %>
 	<% end %>
+
+	<label>One more time..</label>
+	<% f.fields_for :tasks do |task| %>
+		<%= task.label "Content" %>
+		<%= task.text_field :task_content %>
+		<% task.fields_for :hours do |hour| %>
+			<%= hour.label "Hour" %>
+			<%= hour.text_field :hour_number %>
+		<% end %>
+	<% end %> <br>	
 
 	<label>New Task Content:</label><br>
 		<%= f.fields_for :tasks, Task.new do |task| %>
