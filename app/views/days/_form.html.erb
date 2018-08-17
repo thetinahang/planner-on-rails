@@ -56,6 +56,14 @@
 		<% end %>
 	<% end %>
 
+	<label>New Hours and Task Content:</label><br>
+	<% f.fields_for :hours, Hour.new do |hour|%>
+		<%= hour.text_field :hour_number %>
+		<%= f.fields_for :tasks, Task.new do |task| %>
+			<%= task.text_field :task_content %> <br>
+		<% end %>
+	<% end %>
+
 	<br>
 	<label>Tasks: </label><br>
 	1. <%= f.text_field :day_task_1 %><br>
