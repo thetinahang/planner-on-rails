@@ -20,6 +20,7 @@ class HoursController < ApplicationController
   end
 
   def show
+    @hours = Hour.all
   end
 
   def edit

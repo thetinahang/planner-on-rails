@@ -1,6 +1,10 @@
 <h1>Hour: <%= @hour.hour_number %></h1>
 <h1>HourID: <%= @hour.id %></h1>
 
+<% @hour.tasks.each do |task| %>
+  <li><%= task.task_content %></li>
+<% end %>
+
 
 <%= link_to("Edit #{@hour.hour_number}", edit_hour_path) %><br>
 <%= link_to("Delete #{@hour.hour_number}", hour_path(@hour), method: :delete, data: { confirm: 'Are you sure?' } ) %>
