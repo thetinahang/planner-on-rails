@@ -61,6 +61,9 @@
 		<% @day.tasks.each do |task| %>
 	    	<%= task.hour_id %>. <%= task.task_content %><br>
 	    <% end %>
+	    <% Hour.all.each do |hour| %>
+	    	<%= hour.hour_number %> <%= hour.id %><br>
+	    <% end %>
 	<br>
 
 </div>
