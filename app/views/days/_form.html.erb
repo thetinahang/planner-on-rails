@@ -50,15 +50,14 @@
 
 	<label>Hours and Task Content:</label><br>
 	<p>if I had already generated hours and task is copied for all numbers</p><br>
-	
-		 
+ 		
+	<% Hour.all.each do |hour|%>
 		<%= f.fields_for :tasks do |task| %>
-		<% Hour.all.each do |hour|%>
 			<%= hour.hour_number %> <%= hour.id %> 
-				<%= task.text_field :task_content %> <br>
-				<%= task.hidden_field :hour_id, :value => hour.id %>
-			<% end %><br>
-		<% end %>
+			<%= task.text_field :task_content %> 
+			<%= task.hidden_field :hour_id, :value => hour.id %><br>
+		<% end %><br>
+	<% end %>
 
 	<br>
 

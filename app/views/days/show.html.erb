@@ -57,12 +57,9 @@
 		<p>10. <%= @day.day_task_10 %></p>
 
 
-	<h2>TEST2</h2>	
-		<% @day.tasks.each do |task| %>
-	    	<%= task.hour_id %>. <%= task.task_content %><br>
-	    <% end %>
-	    <% Hour.all.each do |hour| %>
-	    	<%= hour.hour_number %> <%= hour.id %><br>
+	<h2>TEST5</h2>	
+	    <% @day.tasks.includes(:hour).each do |task| %>
+		    <%= task.hour.hour_number %> <%= task.hour_id %>. <%= task.task_content %> <br> 
 	    <% end %>
 	<br>
 

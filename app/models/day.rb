@@ -2,7 +2,7 @@ class Day < ActiveRecord::Base
 
 	has_many :tasks
 	has_many :hours, through: :tasks
-	accepts_nested_attributes_for :tasks
+	accepts_nested_attributes_for(:tasks, update_only: true)
 	
 	belongs_to :week, optional: true #need to figure out this part
 

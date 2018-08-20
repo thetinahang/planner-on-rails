@@ -15,4 +15,99 @@
   </div>
 <% end %>
 
-<%= render 'days/form' %>
+<%= form_for(@day) do |f| %>
+  <label>Day and date:</label><br>
+  <%= f.text_field :day_day_date %><br>
+
+  <%= f.hidden_field :user_id, :value => @user.id %>
+ 
+  <label>3 things you are grateful for</label><br>
+  1. <%= f.text_field :day_grateful_1 %><br>
+  2. <%= f.text_field :day_grateful_2 %><br>
+  3. <%= f.text_field :day_grateful_3 %><br>
+
+  <label>3 things you are excited for</label><br>
+  1. <%= f.text_field :day_excited_1 %><br>
+  2. <%= f.text_field :day_excited_2 %><br>
+  3. <%= f.text_field :day_excited_3 %><br>
+
+  <label>Affirmation: </label><br>
+  <%= f.text_field :day_affirmation %><br>
+
+  <label>Focus: </label><br>
+  <%= f.text_field :day_focus %><br>
+
+  <label>Exercise: </label><br>
+  <%= f.text_field :day_exercise %><br>
+
+  <label>Priorities: </label><br>
+  1. <%= f.text_field :day_priority_1 %><br>
+  2. <%= f.text_field :day_priority_2 %><br>
+  3. <%= f.text_field :day_priority_3 %><br>
+  4. <%= f.text_field :day_priority_4 %><br>
+  5. <%= f.text_field :day_priority_5 %><br>
+
+  <label>Schedule: </label><br>
+  6AM: <%= f.text_field :day_hour_6 %><br>
+  7AM: <%= f.text_field :day_hour_7 %><br>
+  8AM: <%= f.text_field :day_hour_8 %><br>
+  8AM: <%= f.text_field :day_hour_9 %><br>
+  10AM: <%= f.text_field :day_hour_10 %><br>
+  11AM: <%= f.text_field :day_hour_11 %><br>
+  12PM: <%= f.text_field :day_hour_12 %><br>
+  1PM: <%= f.text_field :day_hour_13 %><br>
+  2PM: <%= f.text_field :day_hour_14 %><br>
+  3PM: <%= f.text_field :day_hour_15 %><br>
+  4PM: <%= f.text_field :day_hour_16 %><br>
+  5PM: <%= f.text_field :day_hour_17 %><br>
+  6PM: <%= f.text_field :day_hour_18 %><br>
+  7PM: <%= f.text_field :day_hour_19 %><br>
+  8PM: <%= f.text_field :day_hour_20 %><br>
+  9PM: <%= f.text_field :day_hour_21 %><br><br>
+
+  <label>Hours and Task Content:</label><br>
+  <p>if I had already generated hours and task is copied for all numbers</p><br>
+    
+
+    <%= f.fields_for :tasks do |task| %>
+      <% @day.hours.each do |hour|%>
+
+          <%= hour.hour_number %> <%= hour.id %> <%= task.text_field :hour_id %>    
+
+      <% end %>
+      <%= task.text_field :task_content %> <br>
+        
+    <% end %>
+
+
+  <br>
+  <label>Tasks: </label><br>
+  1. <%= f.text_field :day_task_1 %><br>
+  2. <%= f.text_field :day_task_2 %><br>
+  3. <%= f.text_field :day_task_3 %><br>
+  4. <%= f.text_field :day_task_4 %><br>
+  5. <%= f.text_field :day_task_5 %><br>
+  6. <%= f.text_field :day_task_6 %><br>
+  7. <%= f.text_field :day_task_7 %><br>
+  8. <%= f.text_field :day_task_8 %><br>
+  9. <%= f.text_field :day_task_9 %><br>
+  10. <%= f.text_field :day_task_10 %><br>
+
+  
+
+  <label>Notes: </label><br>
+  <%= f.text_field :day_notes %><br>
+
+  <label>Wins of the Day: </label><br>
+  1. <%= f.text_field :day_win_1 %><br>
+  2. <%= f.text_field :day_win_2 %><br>
+  3. <%= f.text_field :day_win_3 %><br>
+
+  <label>Improvement for Tomorrow: </label><br>
+  <%= f.text_field :day_improvement %><br>
+
+
+
+ 
+  <%= f.submit %>
+<% end %>
