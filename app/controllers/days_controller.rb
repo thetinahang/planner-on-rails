@@ -10,6 +10,7 @@ class DaysController < ApplicationController
     @user = current_user
     @day = Day.new
     @day.tasks.build
+    #4.times { @day.tasks.build }
     @day.user_id = @user.id
   end
 

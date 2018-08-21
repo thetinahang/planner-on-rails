@@ -49,17 +49,17 @@
 	9PM: <%= f.text_field :day_hour_21 %><br><br>
 
 	<label>Hours and Task Content:</label><br>
-	<p>if I had already generated hours and task is copied for all numbers</p><br>
- 		
-	<% Hour.all.each do |hour|%>
-		<%= f.fields_for :tasks do |task| %>
-			<%= hour.hour_number %> <%= hour.id %> 
-			<%= task.text_field :task_content %> 
-			<%= task.hidden_field :hour_id, :value => hour.id %><br>
-		<% end %><br>
-	<% end %>
+	<p>If you haven't already, please go generate some hours. </p>
 
-	<br>
+  <% Hour.all.each do |hour|%>
+    <%= f.fields_for :tasks do |task| %>
+      <%= hour.hour_number %> <%= hour.id %> 
+      <%= task.text_field :task_content %> 
+      <%= task.hidden_field :hour_id, :value => hour.id %><br>
+    <% end %><br>
+  <% end %>
+
+  <br>
 
 
 	<br>
