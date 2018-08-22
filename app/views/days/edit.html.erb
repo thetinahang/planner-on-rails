@@ -71,7 +71,7 @@
 
   <label>what is this?</label><br>
   <%= f.fields_for :tasks do |task| %>
-    <%= task.hidden_field :hour_id %> <%= task.text_field :id %><%= task.text_field :task_content %><br>
+    <%= task.text_field :id %> <%= task.hidden_field :hour_id %> <%= task.hidden_field :day_id %>  <%= task.text_field :task_content %><br>
   <% end %><br>bye<br>
 
 
