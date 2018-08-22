@@ -1,7 +1,7 @@
 class Week < ActiveRecord::Base
 	
 	has_many :days
-	belongs_to :month, optional: true #need to figure out this part
+	belongs_to :month, optional: true
 	has_many :months
 	accepts_nested_attributes_for :months
 

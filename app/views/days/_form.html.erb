@@ -49,22 +49,19 @@
 	9PM: <%= f.text_field :day_hour_21 %><br><br>
 
 	<label>Hours and Task Content:</label><br>
-	<p>If you haven't already, please go generate some hours. </p>
+	<p>If you haven't already, please go generate some hours (in military time 24:00). </p>
 
-  <% Hour.all.each do |hour|%>
-    <%= f.fields_for :tasks do |task| %>
-      <%= hour.hour_number %> <%= hour.id %> 
-      <%= task.text_field :task_content %> 
-      <%= task.hidden_field :day_id, :value => @day.id %>
-      <%= task.hidden_field :hour_id, :value => hour.id %><br>
-    <% end %><br>
-  <% end %>
+	<% Hour.all.each do |hour|%>
+		<%= f.fields_for :tasks do |task| %>
+			<%= hour.hour_number %>
+			<%= task.text_field :task_content %> 
+			<%= task.hidden_field :day_id, :value => @day.id %>
+			<%= task.hidden_field :hour_id, :value => hour.id %><br>
+		<% end %><br>
+	<% end %>
 
-  <br>
-
-
-	<br>
 	<label>Tasks: </label><br>
+
 	1. <%= f.text_field :day_task_1 %><br>
 	2. <%= f.text_field :day_task_2 %><br>
 	3. <%= f.text_field :day_task_3 %><br>
@@ -75,8 +72,6 @@
 	8. <%= f.text_field :day_task_8 %><br>
 	9. <%= f.text_field :day_task_9 %><br>
 	10. <%= f.text_field :day_task_10 %><br>
-
-	
 
 	<label>Notes: </label><br>
 	<%= f.text_field :day_notes %><br>
@@ -89,8 +84,5 @@
 	<label>Improvement for Tomorrow: </label><br>
 	<%= f.text_field :day_improvement %><br>
 
-
-
- 
 	<%= f.submit %>
 <% end %>

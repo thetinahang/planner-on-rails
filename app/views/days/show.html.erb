@@ -57,12 +57,10 @@
 		<p>10. <%= @day.day_task_10 %></p>
 
 
-	<h2>TEST5</h2>	
+	<h2>Tasks and their content:</h2>	
 	    <% @day.tasks.includes(:hour).each do |task| %>
-		    <%= task.hour.hour_number %> <%= task.hour_id %>. <%= task.task_content %> <br> 
+		    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 	    <% end %>
-	<br>
-
 </div>
 
 <div>

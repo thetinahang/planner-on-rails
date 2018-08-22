@@ -1,7 +1,7 @@
 class Month < ActiveRecord::Base
 
 	has_many :weeks
-	belongs_to :user, optional: false  #need to figure out this part
+	belongs_to :user, optional: false
 
 	accepts_nested_attributes_for :weeks
 

@@ -13,7 +13,6 @@ class WeeksController < ApplicationController
 
   def new
     @user = current_user
-    #@months = @user.months.ids
     @week = Week.new
     @week.user_id = @user.id
   end
@@ -31,7 +30,6 @@ class WeeksController < ApplicationController
   end
 
   def show
-    #@id = @week.user_id
     @weeks_months_ids = @week.months.ids
     if @week.user_id == current_user.id
       render :show
@@ -41,7 +39,6 @@ class WeeksController < ApplicationController
   end
 
   def edit
-    #@user = current_user
     if @week.user_id == current_user.id
       render :edit
     else
@@ -70,7 +67,6 @@ class WeeksController < ApplicationController
 
     def set_week
       @user = current_user
-      #@week = @user.weeks.find(params[:id])
       @week = Week.find(params[:id])
     end
 
