@@ -53,7 +53,7 @@
 
 	<% Hour.all.each do |hour|%>
 		<%= f.fields_for :tasks do |task| %>
-			<%= hour.hour_number %>
+			<%= hour.hour_number %>.
 			<%= task.text_field :task_content %> 
 			<%= task.hidden_field :day_id, :value => @day.id %>
 			<%= task.hidden_field :hour_id, :value => hour.id %><br>
