@@ -1,0 +1,7 @@
+<h1>Tasks grouped by day:</h1>
+
+<% @tasks_day.each do |task| %>
+	Day: <%= task.day_id %><br>
+	Task: <%= task.task_content %><br><br>
+<% end %>
+<br><br>

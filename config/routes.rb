@@ -21,8 +21,10 @@ Rails.application.routes.draw do
 
   resources :weeks #, only: [:index, :show, :new, :create, :edit]
   #patch 'weeks/:id', to: 'weeks#update'
-
+  get 'tasks/test', to: 'tasks#test'
   resources :tasks
+
+  
 
   #get 'months/:id/weeks', to: 'months#weeks_index'
   #get 'months/:id/weeks/:id', to: 'months#week'

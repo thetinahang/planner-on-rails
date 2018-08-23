@@ -43,6 +43,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def test
+    @tasks_day = Task.group_by_day
+  end
+
   private
 
     def set_task
