@@ -50,6 +50,7 @@
 
 	<label>Hours and Task Content:</label><br>
 	<p>If you haven't already, please go generate some hours (in military time 24:00). </p>
+	<p>You must enter something in each line. If you have nothing for that hour, use "NA".</p>
 
 	<% Hour.all.each do |hour|%>
 		<%= f.fields_for :tasks do |task| %>
