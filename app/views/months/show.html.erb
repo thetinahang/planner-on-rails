@@ -1,42 +1,41 @@
-<h1>Month of: <%= @month.month_name %></h1>
+<h1>Month: <%= @month.month_name %></h1>
 
-<h1>User ID: <%= @month.user_id %></h1>
-
-<div>
-	<h2>Focus:</h2>
-		<p><%= @month.month_focus %></p>
-	<h2>Habit:</h2>
-		<p><%= @month.month_habit %></p>
-	<h2>Goals for the month:</h2>
-		<p>1. <%= @month.month_goal_1 %></p>
-		<p>2. <%= @month.month_goal_2 %></p>
-		<p>3. <%= @month.month_goal_3 %></p>
-	<h2>Distractions to avoid:</h2>
-		<p>1. <%= @month.month_distraction_1 %></p>
-		<p>2. <%= @month.month_distraction_2 %></p>
-		<p>3. <%= @month.month_distraction_3 %></p>
-</div>
-
-
-<div>
-	<h2>Notes</h2>
-		<p><%= @month.month_notes %></p>
-	<h2>Wins of the month:</h2>
-		<p>1. <%= @month.month_win_1 %></p>
-		<p>2. <%= @month.month_win_2 %></p>
-		<p>3. <%= @month.month_win_3 %></p>
-	<h2>Insights:</h2>
-		<p>1. <%= @month.month_insight_1 %></p>
-		<p>2. <%= @month.month_insight_2 %></p>
-		<p>3. <%= @month.month_insight_3 %></p>
-</div>
-
-<div>
-	<h2>Weeks of this month:</h2>
-		<% @month.weeks.each do |week| %>
-  			<p><%= "#{week.week_number}. "%><%= link_to week.week_day_date, week_path(week) %></p>
-		<% end %>
-</div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<h2>Focus:</h2>
+				<p><%= @month.month_focus %></p>
+			<h2>Habit:</h2>
+				<p><%= @month.month_habit %></p>
+			<h2>Goals for the month:</h2>
+				<p>1. <%= @month.month_goal_1 %></p>
+				<p>2. <%= @month.month_goal_2 %></p>
+				<p>3. <%= @month.month_goal_3 %></p>
+			<h2>Distractions to avoid:</h2>
+				<p>1. <%= @month.month_distraction_1 %></p>
+				<p>2. <%= @month.month_distraction_2 %></p>
+				<p>3. <%= @month.month_distraction_3 %></p>
+      	</div>
+		<div class="col-lg-4">
+        	<h2>Notes</h2>
+				<p><%= @month.month_notes %></p>
+			<h2>Wins of the month:</h2>
+				<p>1. <%= @month.month_win_1 %></p>
+				<p>2. <%= @month.month_win_2 %></p>
+				<p>3. <%= @month.month_win_3 %></p>
+			<h2>Insights:</h2>
+				<p>1. <%= @month.month_insight_1 %></p>
+				<p>2. <%= @month.month_insight_2 %></p>
+				<p>3. <%= @month.month_insight_3 %></p>
+      	</div>
+      	<div class="col-lg-4">
+			<h2>Weeks of this month:</h2>
+				<% @month.weeks.each do |week| %>
+  				<p><%= "#{week.week_number}. "%><%= link_to week.week_day_date, week_path(week) %></p>
+			<% end %>
+    	</div>
+    </div>
+  </div>
 
 <%= link_to("Edit #{@month.month_name}", edit_month_path) %><br>
 <%= link_to("Delete #{@month.month_name}", month_path(@month), method: :delete, data: { confirm: 'Are you sure?' } ) %>
