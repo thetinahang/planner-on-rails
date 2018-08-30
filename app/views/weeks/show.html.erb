@@ -1,51 +1,48 @@
 <h1>Week of: <%= @week.week_day_date %></h1>
-<h2>In Month(s): 
-	<%= @weeks_months_ids %> 
-	</h2>
-<h2>Belongs to: <%= @week.user_id %></h2>
-<div>
-	<h2>Wins of the previous week:</h2>
-		<p>1. <%= @week.week_big_win_1 %></p>
-		<p>2. <%= @week.week_big_win_2 %></p>
-		<p>3. <%= @week.week_big_win_3 %></p>
-		<p>4. <%= @week.week_big_win_4 %></p>
-		<p>5. <%= @week.week_big_win_5 %></p>
-	<h2>Improvements for the next week: </h2>
-		<p>1. <%= @week.week_improvement_1 %></p>
-		<p>2. <%= @week.week_improvement_2 %></p>
-</div>
+<h2>In Month(s): <%= @weeks_months_ids %></h2>
 
-<div>
-	<h2>Goals for each section:</h2>
-		<p>Personal: <%= @week.week_personal %></p>
-		<p>Work: <%= @week.week_work %></p>
-		<p>Family/Friends: <%= @week.week_family_friends %></p>
-		<p>Relationships: <%= @week.week_relationship %></p>
-	<h2>Looking forward:</h2>
-		<p>1. <%= @week.week_forward_1 %></p>
-		<p>2. <%= @week.week_forward_2 %></p>
-		<p>3. <%= @week.week_forward_3 %></p>
-	<h2>Habits: </h2>
-		<p>1. <%= @week.week_habit_1 %></p>
-		<p>2. <%= @week.week_habit_2 %></p>
-	<h2>Learn: </h2>
-		<p><%= @week.week_learn %></p>
-	<h2>Passion Project: </h2>
-		<p><%= @week.week_passion %></p>
-</div>
-
-
-<div>
-	<h2>Projects: </h2>
-		<p>1. <%= @week.week_project_1 %></p>
-		<p>2. <%= @week.week_project_2 %></p>
-		<p>3. <%= @week.week_project_3 %></p>
-	<h2>Goals: </h2>
-		<p>1. <%= @week.week_goal_1 %></p>
-		<p>2. <%= @week.week_goal_2 %></p>
-		<p>3. <%= @week.week_goal_3 %></p>
-		<p>4. <%= @week.week_goal_4 %></p>
-		<p>5. <%= @week.week_goal_5 %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<h2>Wins of the previous week:</h2>
+				<p>1. <%= @week.week_big_win_1 %></p>
+				<p>2. <%= @week.week_big_win_2 %></p>
+				<p>3. <%= @week.week_big_win_3 %></p>
+				<p>4. <%= @week.week_big_win_4 %></p>
+				<p>5. <%= @week.week_big_win_5 %></p>
+			<h2>Improvements for the next week: </h2>
+				<p>1. <%= @week.week_improvement_1 %></p>
+				<p>2. <%= @week.week_improvement_2 %></p>
+			<h2>Goals for each section:</h2>
+				<p>Personal: <%= @week.week_personal %></p>
+				<p>Work: <%= @week.week_work %></p>
+				<p>Family/Friends: <%= @week.week_family_friends %></p>
+				<p>Relationships: <%= @week.week_relationship %></p>
+			<h2>Looking forward:</h2>
+				<p>1. <%= @week.week_forward_1 %></p>
+				<p>2. <%= @week.week_forward_2 %></p>
+				<p>3. <%= @week.week_forward_3 %></p>
+			<h2>Habits: </h2>
+				<p>1. <%= @week.week_habit_1 %></p>
+				<p>2. <%= @week.week_habit_2 %></p>
+			<h2>Learn: </h2>
+				<p><%= @week.week_learn %></p>
+			<h2>Passion Project: </h2>
+				<p><%= @week.week_passion %></p>	
+		</div>
+		<div class="col-lg-6">
+			<h2>Projects: </h2>
+				<p>1. <%= @week.week_project_1 %></p>
+				<p>2. <%= @week.week_project_2 %></p>
+				<p>3. <%= @week.week_project_3 %></p>
+			<h2>Goals: </h2>
+				<p>1. <%= @week.week_goal_1 %></p>
+				<p>2. <%= @week.week_goal_2 %></p>
+				<p>3. <%= @week.week_goal_3 %></p>
+				<p>4. <%= @week.week_goal_4 %></p>
+				<p>5. <%= @week.week_goal_5 %></p>
+		</div>
+	</div>
 </div>
 
 <%= link_to("Edit #{@week.week_day_date}", edit_week_path) %><br>
