@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180817155230) do
+ActiveRecord::Schema.define(version: 20180904181419) do
 
   create_table "days", force: :cascade do |t|
     t.string "day_day_date"
@@ -28,22 +28,6 @@ ActiveRecord::Schema.define(version: 20180817155230) do
     t.string "day_priority_3"
     t.string "day_priority_4"
     t.string "day_priority_5"
-    t.string "day_hour_6"
-    t.string "day_hour_7"
-    t.string "day_hour_8"
-    t.string "day_hour_9"
-    t.string "day_hour_10"
-    t.string "day_hour_11"
-    t.string "day_hour_12"
-    t.string "day_hour_13"
-    t.string "day_hour_14"
-    t.string "day_hour_15"
-    t.string "day_hour_16"
-    t.string "day_hour_17"
-    t.string "day_hour_18"
-    t.string "day_hour_19"
-    t.string "day_hour_20"
-    t.string "day_hour_21"
     t.string "day_task_1"
     t.string "day_task_2"
     t.string "day_task_3"

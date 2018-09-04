@@ -23,25 +23,6 @@
 				<p>3. <%= @day.day_priority_3 %></p>
 				<p>4. <%= @day.day_priority_4 %></p>
 				<p>5. <%= @day.day_priority_5 %></p>
-		</div>
-    	<div class="col-lg-6">
-    		<h2>Schedule of the day</h2>
-				<p>6AM: <%= @day.day_hour_6 %></p>
-				<p>7AM: <%= @day.day_hour_7 %></p>
-				<p>8AM: <%= @day.day_hour_8 %></p>
-				<p>9AM: <%= @day.day_hour_9 %></p>
-				<p>10AM: <%= @day.day_hour_10 %></p>
-				<p>11AM: <%= @day.day_hour_11 %></p>
-				<p>12AM: <%= @day.day_hour_12 %></p>
-				<p>1PM: <%= @day.day_hour_13 %></p>
-				<p>2PM: <%= @day.day_hour_14 %></p>
-				<p>3PM: <%= @day.day_hour_15 %></p>
-				<p>4PM: <%= @day.day_hour_16 %></p>
-				<p>5PM: <%= @day.day_hour_17 %></p>
-				<p>6PM: <%= @day.day_hour_18 %></p>
-				<p>7PM: <%= @day.day_hour_19 %></p>
-				<p>8PM: <%= @day.day_hour_20 %></p>
-				<p>9PM: <%= @day.day_hour_21 %></p>		
 			<h2>Tasks</h2>
 				<p>1. <%= @day.day_task_1 %></p>
 				<p>2. <%= @day.day_task_2 %></p>
@@ -53,7 +34,9 @@
 				<p>8. <%= @day.day_task_8 %></p>
 				<p>9. <%= @day.day_task_9 %></p>
 				<p>10. <%= @day.day_task_10 %></p>		
-			<h2>Tasks and their content:</h2>	
+		</div>
+    	<div class="col-lg-6">	
+    		<h2>Hours and their associated task content:</h2>	
 			    <% @day.tasks.includes(:hour).each do |task| %>
 				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 			    <% end %>
