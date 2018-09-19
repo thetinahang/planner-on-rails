@@ -1,3 +1,5 @@
+<!-- 
+
 <h1>Day of: <%= @day.day_day_date %></h1>
 
 <div class="container">
@@ -51,6 +53,26 @@
     	</div>
   	</div>
 </div>
+
+-->
+
+<a href="#" class="js-next" data-id="<%=@day.id%>">Next Day</a>
+<h1 class="dayDayDate"><%= @day.day_day_date %></h1>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.get("/days/" + nextId + ".json", function(data) {
+      $(".dayDayDate").text(data["day_day_date"]);
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script>
+
+
 
 
 <%= link_to("Edit #{@day.day_day_date}", edit_day_path(@day)) %><br>

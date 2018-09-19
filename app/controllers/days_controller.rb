@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
-  before_action :set_day, only: [:show, :edit, :update, :destroy]
+  before_action :set_day, only: [:show, :data, :edit, :update, :destroy]
 
 #  def index
 #    @user = current_user
@@ -36,11 +36,19 @@ class DaysController < ApplicationController
 
   def show
     if @day.user_id == current_user.id
-      render :show
+#      render :show
+      respond_to do |format|
+        format.html {render :show}
+        format.json {render json: @day.to_json(only: [:id, :day_day_date])}
+      end
     else
       render 'planner/index'
     end
   end
+
+  def data
+    render json: @day.to_json(only: [:id, :day_day_date])
+  end 
 
   def edit
   end
