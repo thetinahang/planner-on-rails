@@ -1,10 +1,19 @@
 class DaysController < ApplicationController
   before_action :set_day, only: [:show, :edit, :update, :destroy]
 
+#  def index
+#    @user = current_user
+#    @days = Day.where(user_id: @user.id).all.order('created_at DESC')
+#  end
+
   def index
     @user = current_user
     @days = Day.where(user_id: @user.id).all.order('created_at DESC')
-  end
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @days}
+    end
+  end 
 
   def new
     @user = current_user
