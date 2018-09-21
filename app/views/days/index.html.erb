@@ -4,7 +4,17 @@
   <li><%= link_to day.day_day_date, day_path(day) %></li>
 <% end %>
 
-
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $(".js-more").on('click', function() {
+    var id = $(this).data("id");
+    $.get("/days/" + id + "/data", function(data) {
+      // Replace text of body-id div
+      $("#data-" + id).text(data);
+    });
+  });
+});
+</script>
 
 
 
