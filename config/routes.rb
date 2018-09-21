@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'planner#index'
   resources :planner
   #need to connect landing page with a new page when signed in 
-  resources :days, only: [:index, :show, :new, :create, :edit] #:edit
+  resources :days#, only: [:index, :show, :new, :create, :edit] #:edit
+  #get '/days/:id/tasks', to: 'days#data'
   #resources :products, only: [:show, :index, :new, :create]
   #patch 'days/:id', to: 'days#update'
   #delete '/days/:id', to: 'days#destroy'
