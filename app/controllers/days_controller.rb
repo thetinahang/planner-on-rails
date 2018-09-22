@@ -39,7 +39,7 @@ class DaysController < ApplicationController
 #      render :show
       respond_to do |format|
         format.html {render :show}
-        format.json {render json: @day.to_json(only: [:id, :day_day_date])}
+        format.json {render json: @day}
       end
     else
       render 'planner/index'
@@ -47,7 +47,7 @@ class DaysController < ApplicationController
   end
 
   def data
-    render json: @day.to_json(only: [:id, :day_day_date])
+    render json: @day#.to_json(only: [:id, :day_day_date])
   end 
 
   def edit
