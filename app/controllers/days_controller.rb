@@ -13,6 +13,7 @@ class DaysController < ApplicationController
       format.html {render :index}
       format.json {render json: @days}
     end
+#    render json: @days, status: 200
   end 
 
   def new
@@ -47,7 +48,7 @@ class DaysController < ApplicationController
   end
 
   def data
-    render json: @day#.to_json(only: [:id, :day_day_date])
+    render json: @day
   end 
 
   def edit

@@ -54,6 +54,7 @@
   	</div>
 </div>
 
+<!--
 <h1><%= @day.id %>: <%= @day.day_day_date %></h1>
 <div>
 	<% @day.tasks.includes(:hour).each do |task| %>
@@ -61,12 +62,26 @@
 	<% end %>
 </div>
 <br><br>
+-->
 
 <!-- this should be using js-->
 <a href="#" class="js-next" data-id="<%=@day.id%>">Next Day</a>
 <h1 class="dayDayDate"><%= @day.day_day_date %></h1>
 
-<button class="js-more" data-id="<%= @day.id %>">Doesnt work...</button>
+<button class="js-more" data-id="<%= @day.id %>">Next Day</button>
+
+<script type="text/javascript" charset="utf-8">	
+ $(function () {
+   $(".js-next").on("click", function() {
+     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+     $.get("/days/" + nextId + ".json", function(data) {
+       $(".dayDayDate").text(data["day_day_date"]);
+       // re-set the id to current on the link
+       $(".js-next").attr("data-id", data["id"]);
+     });
+   });
+ });
+ </script>
 
 
 
