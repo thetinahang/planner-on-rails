@@ -1,13 +1,6 @@
-<!--<h1>Here are all of your days:</h1>
-
-<% @days.each do |day| %>
-  <li><%= link_to day.day_day_date, day_path(day) %></li>
-<% end %>-->
-
-
 <h1>Here are all of your days:</h1>
 <% @days.each do |day| %>
-  <h3><%= link_to day.day_day_date, day_path(day) %></h3>
+  <li><%= link_to day.day_day_date, day_path(day) %></li>
   <div id="day-<%= day.id %>">Affirmation: <%= day.day_affirmation %></div>
   <button class="js-more" data-id="<%= day.id %>">More Info</button>
 <% end %>
