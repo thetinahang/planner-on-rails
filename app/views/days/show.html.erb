@@ -1,73 +1,4 @@
-
-
-<h1>Day of: <%= @day.day_day_date %></h1>
-
-<div class="container">
-	<div class="row">
-		<div class="col-lg-6">
-		    <h2>3 things you are grateful for</h2>
-				<p>1. <%= @day.day_grateful_1 %></p>
-				<p>2. <%= @day.day_grateful_2 %></p>
-				<p>3. <%= @day.day_grateful_3 %></p>
-			<h2>3 things you are excited for</h2>
-				<p>1. <%= @day.day_excited_1 %></p>
-				<p>2. <%= @day.day_excited_2 %></p>
-				<p>3. <%= @day.day_excited_3 %></p>
-			<h2>Affirmation</h2>
-				<p><%= @day.day_affirmation %></p>
-			<h2>Focus</h2>
-				<p><%= @day.day_focus %></p>
-			<h2>Exercise</h2>
-				<p><%= @day.day_exercise %></p>
-			<h2>Priorities</h2>
-				<p>1. <%= @day.day_priority_1 %></p>
-				<p>2. <%= @day.day_priority_2 %></p>
-				<p>3. <%= @day.day_priority_3 %></p>
-				<p>4. <%= @day.day_priority_4 %></p>
-				<p>5. <%= @day.day_priority_5 %></p>
-			<h2>Tasks</h2>
-				<p>1. <%= @day.day_task_1 %></p>
-				<p>2. <%= @day.day_task_2 %></p>
-				<p>3. <%= @day.day_task_3 %></p>
-				<p>4. <%= @day.day_task_4 %></p>
-				<p>5. <%= @day.day_task_5 %></p>
-				<p>6. <%= @day.day_task_6 %></p>
-				<p>7. <%= @day.day_task_7 %></p>
-				<p>8. <%= @day.day_task_8 %></p>
-				<p>9. <%= @day.day_task_9 %></p>
-				<p>10. <%= @day.day_task_10 %></p>		
-		</div>
-    	<div class="col-lg-6">	
-    		<h2>Hours and their associated task content:</h2>	
-			    <% @day.tasks.includes(:hour).each do |task| %>
-				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
-			    <% end %>
-			<h2>Notes</h2>
-				<p><%= @day.day_notes %></p>
-			<h2>Wins of the day</h2>
-				<p>1. <%= @day.day_win_1 %></p>
-				<p>2. <%= @day.day_win_2 %></p>
-				<p>3. <%= @day.day_win_3 %></p>
-			<h2>Improvement for tomorrow</h2>
-				<p><%= @day.day_improvement %></p>
-    	</div>
-  	</div>
-</div>
-
-<!--
-<h1><%= @day.id %>: <%= @day.day_day_date %></h1>
-<div>
-	<% @day.tasks.includes(:hour).each do |task| %>
-		<%= task.hour.hour_number %>. <%= task.task_content %> <br>
-	<% end %>
-</div>
-<br><br>
--->
-
-<!-- this should be using js-->
-
 <h1 class="dayDayDate"><%= @day.day_day_date %></h1>
-
 
 <div class="container">
 	<div class="row">
@@ -85,11 +16,17 @@
 					<li class="dayExcited3"><%= @day.day_excited_3 %></li>
 				</ol>
 			<h2>Affirmation</h2>
-				<p class="dayAffirmation"><%= @day.day_affirmation %></p>
+				<ul class="dayAffirmation">
+					<li><%= @day.day_affirmation %></li>
+				</ul>
 			<h2>Focus</h2>
-				<p class="dayFocus"><%= @day.day_focus %></p>
+				<ul class="dayFocus">
+					<li><%= @day.day_focus %></li>
+				</ul>
 			<h2>Exercise</h2>
-				<p class="dayExercise"><%= @day.day_exercise %></p>
+				<ul class="dayExercise">
+					<li><%= @day.day_exercise %></li>
+				</ul>
 			<h2>Priorities</h2>
 				<ol>
 					<li class="dayPriority1"><%= @day.day_priority_1 %></li>
@@ -117,8 +54,15 @@
 			    <% @day.tasks.includes(:hour).each do |task| %>
 				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 			    <% end %>
+			    <!--<div class="dayTaskHourHourNumber dayTaskTaskContent">
+				    <% @day.tasks.includes(:hour).each do |task| %>
+					    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
+				    <% end %>-->
+				</div>
 			<h2>Notes</h2>
-				<p class="dayNotes"><%= @day.day_notes %></p>
+				<ul class="dayNotes">
+					<li><%= @day.day_notes %></li>
+				</ul>
 			<h2>Wins of the day</h2>
 				<ol>
 					<li class="dayWin1"><%= @day.day_win_1 %></li>
@@ -126,7 +70,9 @@
 					<li class="dayWin3"><%= @day.day_win_3 %></li>
 				</ol>
 			<h2>Improvement for tomorrow</h2>
-				<p class="dayImprovement"><%= @day.day_improvement %></p>
+				<ul class="dayImprovement">
+					<li><%= @day.day_improvement %></li>
+				</ul>
     	</div>
   	</div>
 </div>
@@ -165,6 +111,8 @@
        $(".dayTask8").text(data["day_task_8"]);
        $(".dayTask9").text(data["day_task_9"]);
        $(".dayTask10").text(data["day_task_10"]);
+//       $(".dayTaskHourHourNumber").text(task["hour"]["hour_number"]);
+//       $(".dayTaskTaskContent").text(task["task_content"]);
        $(".dayNotes").text(data["day_notes"]);
        $(".dayWin1").text(data["day_win_1"]);
        $(".dayWin2").text(data["day_win_2"]);
