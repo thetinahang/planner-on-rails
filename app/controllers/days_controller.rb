@@ -47,9 +47,9 @@ class DaysController < ApplicationController
     end
   end
 
-  def data
-    render json: @day
-  end 
+#  def data
+#    render json: @day
+#  end 
 
   def edit
   end

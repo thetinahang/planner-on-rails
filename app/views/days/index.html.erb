@@ -1,20 +1,32 @@
-<h1>Here are all of your days:</h1>
+<!--<h1>Here are all of your days:</h1>
 
 <% @days.each do |day| %>
   <li><%= link_to day.day_day_date, day_path(day) %></li>
+<% end %> -->
+
+
+<h1>Here are all of your days:</h1>
+<% @days.each do |day| %>
+  <h3><%= day.day_day_date %></h3>
+  <div id="day-<%= day.id %>">Affirmation: <%= day.day_affirmation %></div>
+  <button class="js-more" data-id="<%= day.id %>">More Info</button>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
-$(function () {
-  $(".js-more").on('click', function() {
+$(function() {
+  $(".js-more").on("click", function() {
     var id = $(this).data("id");
-    $.get("/days/" + id + "/data", function(data) {
-      // Replace text of body-id div
-      $("#data-" + id).text(data);
+    $.get("/days/" + id + ".json", function(response) {
+    	var dayAffirmation = response["day_affirmation"];
+        var dayFocus = response["day_focus"];
+        var dayExercise = response["day_exercise"];
+
+        var dayText = "<p> Affirmation: " + dayAffirmation + "</p><p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>";
+
+        $("#day-" + id).html(dayText);
     });
   });
 });
 </script>
-
 
 
