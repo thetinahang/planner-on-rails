@@ -37,6 +37,27 @@
     </div>
   </div>
 
+<button class="js-weeks" data-id="<%= @month.id %>">Weeks of this Month</button>
+
+<script type="text/javascript" charset="utf-8">	
+ $(function () {
+   $(".js-weeks").on("click", function() {
+     var nextId = parseInt($(".js-weeks").attr("data-id")) + 1;
+     $.get("/months/" + nextId + "/weeks"+ ".json", function(data) {
+       $(".dayDayDate").text(data["day_day_date"]);
+       $(".dayGrateful1").text(data["day_grateful_1"]);
+       $(".dayGrateful2").text(data["day_grateful_2"]);
+       $(".dayGrateful3").text(data["day_grateful_3"]);
+       $(".dayExcited1").text(data["day_excited_1"]);
+       $(".dayExcited2").text(data["day_excited_2"]);
+       $(".dayExcited3").text(data["day_excited_3"]);
+       // re-set the id to current on the link
+       $(".js-weeks").attr("data-id", data["id"]);
+     });
+   });
+ });
+ </script>
+
 <%= link_to("Edit #{@month.month_name}", edit_month_path) %><br>
 <%= link_to("Delete #{@month.month_name}", month_path(@month), method: :delete, data: { confirm: 'Are you sure?' } ) %>
 
