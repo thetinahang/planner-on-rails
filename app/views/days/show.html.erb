@@ -32,8 +32,8 @@
 					<li class="dayPriority1"><%= @day.day_priority_1 %></li>
 					<li class="dayPriority2"><%= @day.day_priority_2 %></li>
 					<li class="dayPriority3"><%= @day.day_priority_3 %></li>
-					<li class="dayPriority2"><%= @day.day_priority_4 %></li>
-					<li class="dayPriority3"><%= @day.day_priority_5 %></li>
+					<li class="dayPriority4"><%= @day.day_priority_4 %></li>
+					<li class="dayPriority5"><%= @day.day_priority_5 %></li>
 				</ol>
 			<h2>Tasks</h2>
 				<ol>
@@ -54,11 +54,17 @@
 			    <% @day.tasks.includes(:hour).each do |task| %>
 				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 			    <% end %>
+			    <% @day.tasks.each do |task| %>
+				    <%= task.task_content %> <br>
+			    <% end %>
+			   
+			
 			    <!--<div class="dayTaskHourHourNumber dayTaskTaskContent">
 				    <% @day.tasks.includes(:hour).each do |task| %>
 					    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 				    <% end %>
 				</div>-->
+				<div class="displayTaskList"></div>
 			<h2>Notes</h2>
 				<ul class="dayNotes">
 					<li><%= @day.day_notes %></li>
@@ -118,13 +124,19 @@
        $(".dayWin2").text(data["day_win_2"]);
        $(".dayWin3").text(data["day_win_3"]);
        $(".dayImprovement").text(data["day_improvement"]);
+
+       var taskList = data["tasks"]//.map(function (task) {
+          //return task["task_content"]}).join('');
+
+       //var displayTaskList = "<ul>" + taskList + "</ul>";
+       $(".displayTaskList").text(taskList);
+
        // re-set the id to current on the link
        $(".js-next").attr("data-id", data["id"]);
      });
    });
  });
  </script>
-
 
 
 <br>
