@@ -30,5 +30,8 @@ class DaySerializer < ActiveModel::Serializer
     :day_win_2,
     :day_win_3,
     :day_improvement
-  has_many :tasks
+    
+  has_many :hours
+
+
 end

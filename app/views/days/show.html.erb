@@ -54,17 +54,11 @@
 			    <% @day.tasks.includes(:hour).each do |task| %>
 				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 			    <% end %>
-			    <% @day.tasks.each do |task| %>
-				    <%= task.task_content %> <br>
-			    <% end %>
-			   
-			
 			    <!--<div class="dayTaskHourHourNumber dayTaskTaskContent">
 				    <% @day.tasks.includes(:hour).each do |task| %>
 					    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 				    <% end %>
 				</div>-->
-				<div class="displayTaskList"></div>
 			<h2>Notes</h2>
 				<ul class="dayNotes">
 					<li><%= @day.day_notes %></li>
@@ -124,12 +118,13 @@
        $(".dayWin2").text(data["day_win_2"]);
        $(".dayWin3").text(data["day_win_3"]);
        $(".dayImprovement").text(data["day_improvement"]);
+       //$(".dayhourtask").text(data["hour_with_task_content"]);
 
-       var taskList = data["tasks"]//.map(function (task) {
+       //var taskList = data["tasks"]//.map(function (task) {
           //return task["task_content"]}).join('');
 
        //var displayTaskList = "<ul>" + taskList + "</ul>";
-       $(".displayTaskList").text(taskList);
+       //$(".displayTaskList").text(data(taskList));
 
        // re-set the id to current on the link
        $(".js-next").attr("data-id", data["id"]);
