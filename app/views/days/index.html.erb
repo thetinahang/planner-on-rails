@@ -1,6 +1,9 @@
 <h1>Here are all of your days:</h1>
 <% @days.each do |day| %>
   <li><%= link_to day.day_day_date, day_path(day) %></li>
+<!--  <% day.tasks.each do |task| %>
+    <li><%= task.task_content %></li>
+  <% end %>-->
   <div id="day-<%= day.id %>">Affirmation: <%= day.day_affirmation %></div>
   <button class="js-more" data-id="<%= day.id %>">More Info</button>
 <% end %>
@@ -17,7 +20,15 @@ $(function() {
         var hourLIs = response["hours"].map(function (hour) {
           return "<li> Hour: " + hour["hour_number"] + "</li>"}).join('');
 
-        var dayText = "<p> Affirmation: " + dayAffirmation + "</p><p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourLIs + "</ul>";
+        var taskLIs = response["hours"].map(function (hour) {
+          return "<li> Task: " + hour["id"]["task_content"] + "</li>"
+
+
+        }).join('');
+
+
+
+        var dayText = "<p> Affirmation: " + dayAffirmation + "</p><p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourLIs + "</ul>" + "<ul>" + taskLIs + "</ul>";
 
         $("#day-" + id).html(dayText);
     });
