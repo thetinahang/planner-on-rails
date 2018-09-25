@@ -11,7 +11,7 @@ class DaysController < ApplicationController
     @days = Day.where(user_id: @user.id).all.order('created_at DESC')
     respond_to do |format|
       format.html {render :index}
-      format.json {render json: @days}
+      format.json {render json: @days, include: ['tasks']}
     end
 #    render json: @days, status: 200
   end 

@@ -20,8 +20,8 @@ $(function() {
         var hourLIs = response["hours"].map(function (hour) {
           return "<li> Hour: " + hour["hour_number"] + "</li>"}).join('');
 
-        var taskLIs = response["hours"].map(function (hour) {
-          return "<li> Task: " + hour["id"]["task_content"] + "</li>"
+        var taskLIs = response["tasks"].map(function (task) {
+          return "<li> Task: " + task["task_content"] + "</li>"
 
 
         }).join('');
