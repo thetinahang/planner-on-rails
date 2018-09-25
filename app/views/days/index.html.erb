@@ -14,7 +14,10 @@ $(function() {
         var dayFocus = response["day_focus"];
         var dayExercise = response["day_exercise"];
 
-        var dayText = "<p> Affirmation: " + dayAffirmation + "</p><p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>";
+        var hourLIs = response["hours"].map(function (hour) {
+          return "<li> Hour: " + hour["hour_number"] + "</li>"}).join('');
+
+        var dayText = "<p> Affirmation: " + dayAffirmation + "</p><p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourLIs + "</ul>";
 
         $("#day-" + id).html(dayText);
     });
