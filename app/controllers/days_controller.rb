@@ -28,7 +28,9 @@ class DaysController < ApplicationController
     @day = Day.new(day_params)
     respond_to do |format|
       if @day.save
-        format.html { redirect_to @day, notice: 'Day was successfully created.' }
+        #format.html { redirect_to @day, notice: 'Day was successfully created.' }
+        format.html {render :show}
+        format.json {render json: @day}
       else
         format.html { render :new }
       end
