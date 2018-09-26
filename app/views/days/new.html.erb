@@ -16,75 +16,145 @@
 <% end %>
 
 <%= form_for(@day) do |f| %>
-  <label>Day and date:</label><br>
-  <%= f.text_field :day_day_date %><br>
+  <div class="field">
+    <%= f.label :day_day_date %><br>
+    <%= f.text_field :day_day_date %><br>
+  </div>
 
-  <%= f.hidden_field :user_id, :value => @user.id %>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.hidden_field :user_id, :value => @user.id %>
+  </div>
  
-  <label>3 things you are grateful for</label><br>
-  1. <%= f.text_field :day_grateful_1 %><br>
-  2. <%= f.text_field :day_grateful_2 %><br>
-  3. <%= f.text_field :day_grateful_3 %><br>
+  <div class="field">
+    <%= f.label :day_grateful_1 %><br>
+    1. <%= f.text_field :day_grateful_1 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_grateful_2 %><br>
+    2. <%= f.text_field :day_grateful_2 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_grateful_3 %><br>
+    3. <%= f.text_field :day_grateful_3 %><br>
+  </div>
 
-  <label>3 things you are excited for</label><br>
-  1. <%= f.text_field :day_excited_1 %><br>
-  2. <%= f.text_field :day_excited_2 %><br>
-  3. <%= f.text_field :day_excited_3 %><br>
+  <div class="field">
+    <%= f.label :day_excited_1 %><br>
+    1. <%= f.text_field :day_excited_1 %><br>
+  </div>
+  <div class="field">  
+    <%= f.label :day_excited_2 %><br>
+    2. <%= f.text_field :day_excited_2 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_excited_3 %><br>
+    3. <%= f.text_field :day_excited_3 %><br>
+  </div>
 
-  <label>Affirmation: </label><br>
-  <%= f.text_field :day_affirmation %><br>
+  <div class="field">
+    <%= f.label :day_affirmation %><br>
+    <%= f.text_field :day_affirmation %><br>
+  </div>
 
-  <label>Focus: </label><br>
-  <%= f.text_field :day_focus %><br>
+  <div class="field">
+    <%= f.label :day_focus %><br>
+    <%= f.text_field :day_focus %><br>
+  </div>
 
-  <label>Exercise: </label><br>
-  <%= f.text_field :day_exercise %><br>
+  <div class="field">
+    <%= f.label :day_exercise %><br>
+    <%= f.text_field :day_exercise %><br>
+  </div>
 
-  <label>Priorities: </label><br>
-  1. <%= f.text_field :day_priority_1 %><br>
-  2. <%= f.text_field :day_priority_2 %><br>
-  3. <%= f.text_field :day_priority_3 %><br>
-  4. <%= f.text_field :day_priority_4 %><br>
-  5. <%= f.text_field :day_priority_5 %><br><br>
+  <div class="field">
+    <%= f.label :day_priority_1 %><br>
+    1. <%= f.text_field :day_priority_1 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_priority_2 %><br>
+    2. <%= f.text_field :day_priority_2 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_priority_3 %><br>
+    3. <%= f.text_field :day_priority_3 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_priority_4 %><br>
+    4. <%= f.text_field :day_priority_4 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_priority_5 %><br>
+    5. <%= f.text_field :day_priority_5 %><br>
+  </div>
 
-  <label>Hours and Task Content:</label><br>
-  <p>If you haven't already, please go generate some hours (in military time 24:00). </p>
-  <p>You must enter something in each line. If you have nothing for that hour, use "NA".</p>
+  <div class="field">
+    <%= f.label :day_task_1 %><br>
+    1. <%= f.text_field :day_task_1 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_2 %><br>
+    2. <%= f.text_field :day_task_2 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_3 %><br>
+    3. <%= f.text_field :day_task_3 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_4 %><br>
+    4. <%= f.text_field :day_task_4 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_5 %><br>
+    5. <%= f.text_field :day_task_5 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_6 %><br>
+    6. <%= f.text_field :day_task_6 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_7 %><br>
+    7. <%= f.text_field :day_task_7 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_8 %><br>
+    8. <%= f.text_field :day_task_8 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_9 %><br>
+    9. <%= f.text_field :day_task_9 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_task_10 %><br>
+    10. <%= f.text_field :day_task_10 %><br>
+  </div>
 
-  <% Hour.all.each do |hour|%>
-    <%= f.fields_for :tasks do |task| %>
-      <%= hour.hour_number %>.
-      <%= task.text_field :task_content %> 
-      <%= task.hidden_field :day_id, :value => @day.id %>
-      <%= task.hidden_field :hour_id, :value => hour.id %><br>
-    <% end %><br>
-  <% end %>
+  <div class="field">
+    <%= f.label :day_notes %><br>
+    <%= f.text_field :day_notes %><br>
+  </div>
 
-  <label>Tasks: </label><br>
+  <div class="field">
+    <%= f.label :day_win_1 %><br>
+    1. <%= f.text_field :day_win_1 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_win_2 %><br>
+    2. <%= f.text_field :day_win_2 %><br>
+  </div>
+  <div class="field">
+    <%= f.label :day_win_3 %><br>
+    3. <%= f.text_field :day_win_3 %><br>
+  </div>
 
-  1. <%= f.text_field :day_task_1 %><br>
-  2. <%= f.text_field :day_task_2 %><br>
-  3. <%= f.text_field :day_task_3 %><br>
-  4. <%= f.text_field :day_task_4 %><br>
-  5. <%= f.text_field :day_task_5 %><br>
-  6. <%= f.text_field :day_task_6 %><br>
-  7. <%= f.text_field :day_task_7 %><br>
-  8. <%= f.text_field :day_task_8 %><br>
-  9. <%= f.text_field :day_task_9 %><br>
-  10. <%= f.text_field :day_task_10 %><br>
+  <div class="field">
+    <%= f.label :day_improvement %><br>
+    <%= f.text_field :day_improvement %><br>
+  </div>
 
-  <label>Notes: </label><br>
-  <%= f.text_field :day_notes %><br>
-
-  <label>Wins of the Day: </label><br>
-  1. <%= f.text_field :day_win_1 %><br>
-  2. <%= f.text_field :day_win_2 %><br>
-  3. <%= f.text_field :day_win_3 %><br>
-
-  <label>Improvement for Tomorrow: </label><br>
-  <%= f.text_field :day_improvement %><br>
-
-  <%= f.submit %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
 
 <div id="dayResult">
@@ -130,42 +200,40 @@
       var values = $(this).serialize();
  
       //var posting = $.post('/posts', values);
-      var daying = $.day('/days', values);
+      var dy = $.day('/days', values);
  
-      daying.done(function(data) {
+      dy.done(function(data) {
         var day = data;
-        $("#dayDayDate").text(data["day_day_date"]);
-        $("#dayGrateful1").text(data["day_grateful_1"]);
-        $("#dayGrateful2").text(data["day_grateful_2"]);
-        $("#dayGrateful3").text(data["day_grateful_3"]);
-        $("#dayExcited1").text(data["day_excited_1"]);
-        $("#dayExcited2").text(data["day_excited_2"]);
-        $("#dayExcited3").text(data["day_excited_3"]);
-        $("#dayAffirmation").text(data["day_affirmation"]);
-        $("#dayFocus").text(data["day_focus"]);
-        $("#dayExercise").text(data["day_exercise"]);
-        $("#dayPriority1").text(data["day_priority_1"]);
-        $("#dayPriority2").text(data["day_priority_2"]);
-        $("#dayPriority3").text(data["day_priority_3"]);
-        $("#dayPriority4").text(data["day_priority_4"]);
-        $("#dayPriority5").text(data["day_priority_5"]);
-        $("#dayTask1").text(data["day_task_1"]);
-        $("#dayTask2").text(data["day_task_2"]);
-        $("#dayTask3").text(data["day_task_3"]);
-        $("#dayTask4").text(data["day_task_4"]);
-        $("#dayTask5").text(data["day_task_5"]);
-        $("#dayTask6").text(data["day_task_6"]);
-        $("#dayTask7").text(data["day_task_7"]);
-        $("#dayTask8").text(data["day_task_8"]);
-        $("#dayTask9").text(data["day_task_9"]);
-        $("#dayTask10").text(data["day_task_10"]);
-  //      $(".dayTaskHourHourNumber").text(task["hour"]["hour_number"]);
-  //      $(".dayTaskTaskContent").text(task["task_content"]);
-        $("#dayNotes").text(data["day_notes"]);
-        $("#dayWin1").text(data["day_win_1"]);
-        $("#dayWin2").text(data["day_win_2"]);
-        $("#dayWin3").text(data["day_win_3"]);
-        $("#dayImprovement").text(data["day_improvement"]);
+        $("#dayDayDate").text(day["day_day_date"]);
+        $("#dayGrateful1").text(day["day_grateful_1"]);
+        $("#dayGrateful2").text(day["day_grateful_2"]);
+        $("#dayGrateful3").text(day["day_grateful_3"]);
+        $("#dayExcited1").text(day["day_excited_1"]);
+        $("#dayExcited2").text(day["day_excited_2"]);
+        $("#dayExcited3").text(day["day_excited_3"]);
+        $("#dayAffirmation").text(day["day_affirmation"]);
+        $("#dayFocus").text(day["day_focus"]);
+        $("#dayExercise").text(day["day_exercise"]);
+        $("#dayPriority1").text(day["day_priority_1"]);
+        $("#dayPriority2").text(day["day_priority_2"]);
+        $("#dayPriority3").text(day["day_priority_3"]);
+        $("#dayPriority4").text(day["day_priority_4"]);
+        $("#dayPriority5").text(daya["day_priority_5"]);
+        $("#dayTask1").text(day["day_task_1"]);
+        $("#dayTask2").text(day["day_task_2"]);
+        $("#dayTask3").text(day["day_task_3"]);
+        $("#dayTask4").text(day["day_task_4"]);
+        $("#dayTask5").text(day["day_task_5"]);
+        $("#dayTask6").text(day["day_task_6"]);
+        $("#dayTask7").text(day["day_task_7"]);
+        $("#dayTask8").text(day["day_task_8"]);
+        $("#dayTask9").text(day["day_task_9"]);
+        $("#dayTask10").text(day["day_task_10"]);
+        $("#dayNotes").text(day["day_notes"]);
+        $("#dayWin1").text(day["day_win_1"]);
+        $("#dayWin2").text(day["day_win_2"]);
+        $("#dayWin3").text(day["day_win_3"]);
+        $("#dayImprovement").text(day["day_improvement"]);
       });
     });
   });
