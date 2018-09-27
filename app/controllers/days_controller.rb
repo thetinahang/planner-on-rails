@@ -26,14 +26,16 @@ class DaysController < ApplicationController
   def create
     @user = current_user
     @day = Day.new(day_params)
-    respond_to do |format|
-      if @day.save
-        #format.html { redirect_to @day, notice: 'Day was successfully created.' }
-        render json: @day, status: 201
-      else
-        format.html { render :new }
-      end
-    end
+    @day.save
+    render json: @day, status: 201
+#    respond_to do |format|
+#      if @day.save
+#        #format.html { redirect_to @day, notice: 'Day was successfully created.' }
+#        render json: @day, status: 201
+#      else
+#        format.html { render :new }
+#      end
+#    end
   end
 
   def show
