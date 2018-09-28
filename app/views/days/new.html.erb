@@ -88,6 +88,20 @@
     <%= f.text_field :day_priority_5 %><br>
   </div>
 
+  <h3>This is where the tasks/hours should be:</h3><br>
+    <label>Hours and Task Content:</label><br>
+    <p>If you haven't already, please go generate some hours (in military time 24:00). </p>
+    <p>You must enter something in each line. If you have nothing for that hour, use "NA".</p>
+
+    <% Hour.all.each do |hour|%>
+      <%= f.fields_for :tasks do |task| %>
+        <%= hour.hour_number %>.
+        <%= task.text_field :task_content %> 
+        <%= task.hidden_field :day_id, :value => @day.id %>
+        <%= task.hidden_field :hour_id, :value => hour.id %><br>
+      <% end %><br>
+    <% end %>
+  
   <div class="field">
     <%= f.label :day_task_1 %><br>
     <%= f.text_field :day_task_1 %><br>
