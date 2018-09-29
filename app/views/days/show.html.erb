@@ -1,4 +1,5 @@
-<h1 class="dayDayDate"><%= @day.day_day_date %></h1>
+<h1 class="dayDayDate"><%= @day.day_day_date %></h1> 
+<button class="js-next" data-id="<%= @day.id %>">Next Day</button>
 
 <div class="container">
 	<div class="row">
@@ -74,7 +75,7 @@
 
 
 
-<button class="js-next" data-id="<%= @day.id %>">Next Day</button>
+<!--<button class="js-next" data-id="<%= @day.id %>">Next Day</button>-->
 
 <script type="text/javascript" charset="utf-8">	
  $(function () {
