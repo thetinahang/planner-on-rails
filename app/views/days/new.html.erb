@@ -1,6 +1,6 @@
 <h1>New Day Form</h1>
 
-<% if @day.errors.any? %>
+<!--<% if @day.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(@day.errors.count, "error") %>
@@ -13,16 +13,16 @@
     <% end %>
     </ul>
   </div>
-<% end %>
+<% end %>-->
 
 <%= form_for(@day) do |f| %>
   <div class="field">
-    <%= f.label :day_day_date %>
+    <%= f.label :day_day_date %><br>
     <%= f.text_field :day_day_date %><br>
   </div>
 
   <div class="field">
-    <!--<%= f.label :user_id %><br>-->
+    <%= f.label :user_id %><br>
     <%= f.hidden_field :user_id, :value => @user.id %>
   </div>
  
@@ -101,9 +101,12 @@
         <%= task.hidden_field :hour_id, :value => hour.id %><br>
       <% end %><br>
     <% end %>-->
-  <div class="field">  
-    <%= render partial: "hour", locals: { f: f } %>
-  </div>
+<!--  <div class="field">  
+    <%= render partial: "hour", locals: {day: f} %>
+  </div>-->
+
+   
+    <%= render partial: "hour", locals: {day: f} %>
 
   <div class="field">
     <%= f.label :day_task_1 %><br>
@@ -190,7 +193,7 @@
   <p id="dayPriority3"></p>
   <p id="dayPriority4"></p>
   <p id="dayPriority5"></p>
-  <p id="dayTasks"></p>
+  <p id="hourTask"></p>
   <p id="dayTask1"></p>
   <p id="dayTask2"></p>
   <p id="dayTask3"></p>
@@ -237,6 +240,15 @@
         $("#dayPriority3").text(day["day_priority_3"]);
         $("#dayPriority4").text(day["day_priority_4"]);
         $("#dayPriority5").text(day["day_priority_5"]);
+        var hour = day["hours"].map(function (hour) {
+          return hour["hour_number"] + ": "});
+        var task = day["tasks"].map(function (task) {
+          return task["task_content"]});
+        var hourwithtask = hour.map(function(e, i) {
+          return e + task[i] + "<br>"}).join('');
+        
+        var dayText = hourwithtask;
+        $("#hourTask").html(hourwithtask);
         $("#dayTasks").text(day["tasks"]);
         $("#dayTask1").text(day["day_task_1"]);
         $("#dayTask2").text(day["day_task_2"]);
@@ -257,4 +269,3 @@
     });
   });
 </script>
-
