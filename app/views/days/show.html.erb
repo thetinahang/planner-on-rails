@@ -35,6 +35,16 @@
 					<li class="dayPriority4"><%= @day.day_priority_4 %></li>
 					<li class="dayPriority5"><%= @day.day_priority_5 %></li>
 				</ol>
+					
+		</div>
+    	<div class="col-lg-6">	
+    	<!--	<h2>Hours and their associated task content:</h2>	
+			    <% @day.tasks.includes(:hour).each do |task| %>
+				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
+			    <% end %> -->
+			<h2>Schedule</h2>
+				<div class="dayTasks">
+				</div>	
 			<h2>Tasks</h2>
 				<ol>
 					<li class="dayTask1"><%= @day.day_task_1 %></li>
@@ -47,16 +57,7 @@
 					<li class="dayTask8"><%= @day.day_task_8 %></li>
 					<li class="dayTask9"><%= @day.day_task_9 %></li>
 					<li class="dayTask10"><%= @day.day_task_10 %></li>
-				</ol>		
-		</div>
-    	<div class="col-lg-6">	
-    		<h2>Hours and their associated task content:</h2>	
-			    <% @day.tasks.includes(:hour).each do |task| %>
-				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
-			    <% end %>
-			<h2>Tasks iteration</h2>
-				<div class="dayTasks">
-				</div>	
+				</ol>
 			<h2>Notes</h2>
 				<ul class="dayNotes">
 					<li><%= @day.day_notes %></li>
@@ -100,7 +101,7 @@
        $(".dayPriority4").text(data["day_priority_4"]);
        $(".dayPriority5").text(data["day_priority_5"]);
        var tasks = data["tasks"].map(function (task) {
-       	return "<li>" + task.hour_id + ": " + task.task_content + "</li>"
+       	return task.hour_id + ": " + task.task_content + "<br>"
        }).join('');
        //$(".dayTasks").text(data["tasks"][0].id);
        $(".dayTasks").html(tasks);
