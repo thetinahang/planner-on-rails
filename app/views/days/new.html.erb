@@ -1,6 +1,6 @@
 <h1>New Day Form</h1>
 
-<!--<% if @day.errors.any? %>
+<% if @day.errors.any? %>
   <div id="error_explanation">
     <h2>
       <%= pluralize(@day.errors.count, "error") %>
@@ -13,16 +13,16 @@
     <% end %>
     </ul>
   </div>
-<% end %>-->
+<% end %>
 
 <%= form_for(@day) do |f| %>
   <div class="field">
-    <%= f.label :day_day_date %><br>
+    <%= f.label :day_day_date %>
     <%= f.text_field :day_day_date %><br>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %><br>
+    <!--<%= f.label :user_id %><br>-->
     <%= f.hidden_field :user_id, :value => @user.id %>
   </div>
  
