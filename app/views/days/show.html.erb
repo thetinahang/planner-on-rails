@@ -38,12 +38,8 @@
 					
 		</div>
     	<div class="col-lg-6">	
-    	<!--	<h2>Hours and their associated task content:</h2>	
-			    <% @day.tasks.includes(:hour).each do |task| %>
-				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
-			    <% end %> -->
 			<h2>Schedule</h2>
-				<div class="dayTasks">
+				<div class="hourTask">
 				</div>	
 			<h2>Tasks</h2>
 				<ol>
@@ -100,11 +96,19 @@
        $(".dayPriority3").text(data["day_priority_3"]);
        $(".dayPriority4").text(data["day_priority_4"]);
        $(".dayPriority5").text(data["day_priority_5"]);
-       var tasks = data["tasks"].map(function (task) {
-       	return task.hour_id + ": " + task.task_content + "<br>"
-       }).join('');
-       //$(".dayTasks").text(data["tasks"][0].id);
-       $(".dayTasks").html(tasks);
+        var hour = data["hours"].map(function (hour) {
+          return hour["hour_number"] + ": "});
+
+        var task = data["tasks"].map(function (task) {
+          return task["task_content"]});
+
+        var hourwithtask = hour.map(function(e, i) {
+          return e + task[i] + "<br>"}).join('');
+        
+        var dayText = hourwithtask;
+
+        $(".hourTask").html(hourwithtask);
+
        $(".dayTask1").text(data["day_task_1"]);
        $(".dayTask2").text(data["day_task_2"]);
        $(".dayTask3").text(data["day_task_3"]);
@@ -115,21 +119,11 @@
        $(".dayTask8").text(data["day_task_8"]);
        $(".dayTask9").text(data["day_task_9"]);
        $(".dayTask10").text(data["day_task_10"]);
-//       $(".dayTaskHourHourNumber").text(task["hour"]["hour_number"]);
-//       $(".dayTaskTaskContent").text(task["task_content"]);
        $(".dayNotes").text(data["day_notes"]);
        $(".dayWin1").text(data["day_win_1"]);
        $(".dayWin2").text(data["day_win_2"]);
        $(".dayWin3").text(data["day_win_3"]);
        $(".dayImprovement").text(data["day_improvement"]);
-       //$(".dayhourtask").text(data["hour_with_task_content"]);
-
-       //var taskList = data["tasks"]//.map(function (task) {
-          //return task["task_content"]}).join('');
-
-       //var displayTaskList = "<ul>" + taskList + "</ul>";
-       //$(".displayTaskList").text(data(taskList));
-
        // re-set the id to current on the link
        $(".js-next").attr("data-id", data["id"]);
      });
