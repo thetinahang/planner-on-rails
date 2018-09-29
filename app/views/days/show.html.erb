@@ -54,11 +54,9 @@
 			    <% @day.tasks.includes(:hour).each do |task| %>
 				    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
 			    <% end %>
-			    <!--<div class="dayTaskHourHourNumber dayTaskTaskContent">
-				    <% @day.tasks.includes(:hour).each do |task| %>
-					    <%= task.hour.hour_number %>. <%= task.task_content %> <br>
-				    <% end %>
-				</div>-->
+			<h2>Tasks iteration</h2>
+				<div class="dayTasks">
+				</div>	
 			<h2>Notes</h2>
 				<ul class="dayNotes">
 					<li><%= @day.day_notes %></li>
@@ -101,6 +99,11 @@
        $(".dayPriority3").text(data["day_priority_3"]);
        $(".dayPriority4").text(data["day_priority_4"]);
        $(".dayPriority5").text(data["day_priority_5"]);
+       var tasks = data["tasks"].map(function (task) {
+       	return "<li>" + task.hour_id + ": " + task.task_content + "</li>"
+       }).join('');
+       //$(".dayTasks").text(data["tasks"][0].id);
+       $(".dayTasks").html(tasks);
        $(".dayTask1").text(data["day_task_1"]);
        $(".dayTask2").text(data["day_task_2"]);
        $(".dayTask3").text(data["day_task_3"]);
