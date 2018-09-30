@@ -40,6 +40,11 @@
 		</div>
     	<div class="col-lg-6">	
 			<h2>Schedule</h2>
+				<div class="test">
+					<% @day.tasks.includes(:hour).each do |task| %>
+				    	<%= task.hour.hour_number %>. <%= task.task_content %> <br>
+			    	<% end %>
+				</div>
 				<div class="hourTask">
 				</div>	
 			<h2>Tasks</h2>
@@ -80,6 +85,7 @@
 <script type="text/javascript" charset="utf-8">	
  $(function () {
    $(".js-next").on("click", function() {
+   	 $(".test").hide();
      var nextId = parseInt($(".js-next").attr("data-id")) + 1;
      $.get("/days/" + nextId + ".json", function(data) {
        $(".dayDayDate").text(data["day_day_date"]);
