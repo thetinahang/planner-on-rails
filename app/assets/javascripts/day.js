@@ -1,11 +1,31 @@
-// date object 
-// review hoisting and scope
 
-//function User(name, email) {
-//  this.name = name;
-//  this.email = email;
-//}
-// 
+$(function() {
+  indexShow()
+});
+
+function indexShow() {
+	$(".js-more").on("click", function() {
+	    var id = $(this).data("id");
+	    $.get("/days/" + id + ".json", function(response) {
+	        var dayFocus = response["day_focus"];
+	        var dayExercise = response["day_exercise"];//
+
+
+	        var hour = response["hours"].map(function (hour) {
+	          return hour["hour_number"] + ": "});//
+
+	        var task = response["tasks"].map(function (task) {
+	          return task["task_content"]});//
+
+	        var hourwithtask = hour.map(function(e, i) {
+	          return "<li>" + e + task[i] + "</li>"}).join('');
+	        
+	        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourwithtask + "</ul>" ;//
+
+	        $("#day-" + id).html(dayText);
+	    });
+	});
+}
 
 class Day {
 	constructor(id, day_day_date, user_id, day_grateful_1, day_grateful_2, day_grateful_3, day_excited_1, day_excited_2, day_excited_3, day_affirmation, day_focus, day_exercise, day_priority_1, day_priority_2, day_priority_3, day_priority_4, day_priority_5, day_task_1, day_task_2, day_task_3, day_task_4, day_task_5, day_task_6, day_task_7, day_task_8, day_task_9, day_task_10, day_notes, day_win_1, day_win_2, day_win_3, tasks = []){
@@ -43,11 +63,7 @@ class Day {
 	    this.tasks = tasks;
 	};
 
-	dayAffirmationAlert() {
-		alert(this.day_affirmation);
+	dayDate() {
+		console.log("The date is "+ this.day_day_date);
 	}
 }
-
-//User.prototype.sayHello = function() {
-//  console.log("Hello, my name is "+ this.name);
-//}
