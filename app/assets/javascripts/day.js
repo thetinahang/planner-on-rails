@@ -174,6 +174,6 @@ class Day {
 	};
 
 	dayDate() {
-		console.log("The date is "+ this.day_day_date);
+		return "The date is "+ this.day_day_date;
 	}
 }
