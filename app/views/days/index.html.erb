@@ -1,8 +1,8 @@
 <h1>Here are all of your days:</h1>
 <% @days.each do |day| %>
-  <li><%= link_to day.day_day_date, day_path(day) %></li>
-  <div id="day-<%= day.id %>">Focus: <%= day.day_focus %></div>
-  <button class="js-more" data-id="<%= day.id %>">More Info</button>
+  <li><strong><%= link_to day.day_day_date, day_path(day) %></strong></li>
+  <div id="day-<%= day.id %>">FOCUS: <%= day.day_focus %></div>
+  <button class="js-more" data-id="<%= day.id %>">Your schedule for the day</button>
 <% end %>
 
 <!--//<script type="text/javascript" charset="utf-8">

@@ -1,7 +1,8 @@
 document.addEventListener("turbolinks:load", function() {
+  $.rails.refreshCSRFTokens()
   indexShow();
   showDay();
-  createDay();
+  addDay();
 })
 
 
@@ -21,7 +22,8 @@ function indexShow() {
 	          return task["task_content"]});
 	        var hourwithtask = hour.map(function(e, i) {
 	          return "<li>" + e + task[i] + "</li>"}).join('');
-	        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourwithtask + "</ul>" ;//
+	        //var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourwithtask + "</ul>" ;//
+          var dayText = "<p> FOCUS: "+ dayFocus + "</p><ul>" + hourwithtask + "</ul>" ;
 	        $("#day-" + id).html(dayText);
 	    });
 	});
@@ -134,20 +136,21 @@ function addDay() {
     });
 }
 
-function createDay() {
-    $('form').submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
-      var newDay = new Day(day_day_date, user_id, day_grateful_1, day_grateful_2, day_grateful_3, day_excited_1, day_excited_2, day_excited_3, day_affirmation, day_focus, day_exercise, day_priority_1, day_priority_2, day_priority_3, day_priority_4, day_priority_5, day_task_1, day_task_2, day_task_3, day_task_4, day_task_5, day_task_6, day_task_7, day_task_8, day_task_9, day_task_10, day_notes, day_win_1, day_win_2, day_win_3, tasks = []);
-      var showDayDate = newDay.dayDate();
-      $("#dayDayDate").append(showDayDate);
- 
-})}
+//function createDay() {
+//    $('form').submit(function(event) {
+//      //prevent form from submitting the default way
+//      event.preventDefault();
+//      var newDay = new Day(day_day_date, user_id, day_grateful_1, day_grateful_2, day_grateful_3, day_excited_1, day_excited_2, day_excited_3, day_affirmation, day_focus, day_exercise, day_priority_1, day_priority_2, day_priority_3, day_priority_4, day_priority_5, day_task_1, day_task_2, day_task_3, day_task_4, day_task_5, day_task_6, day_task_7, day_task_8, day_task_9, day_task_10, day_notes, day_win_1, day_win_2, day_win_3, tasks = []);
+//      var showDayDate = newDay.dayDate();
+//      $("#dayDayDate").append(showDayDate);
+// 
+//})}
 
 
 class Day {
-	constructor(day_day_date, user_id, day_grateful_1, day_grateful_2, day_grateful_3, day_excited_1, day_excited_2, day_excited_3, day_affirmation, day_focus, day_exercise, day_priority_1, day_priority_2, day_priority_3, day_priority_4, day_priority_5, day_task_1, day_task_2, day_task_3, day_task_4, day_task_5, day_task_6, day_task_7, day_task_8, day_task_9, day_task_10, day_notes, day_win_1, day_win_2, day_win_3, tasks = []){
-		this.day_day_date = day_day_date;
+	constructor(id, day_day_date, user_id, day_grateful_1, day_grateful_2, day_grateful_3, day_excited_1, day_excited_2, day_excited_3, day_affirmation, day_focus, day_exercise, day_priority_1, day_priority_2, day_priority_3, day_priority_4, day_priority_5, day_task_1, day_task_2, day_task_3, day_task_4, day_task_5, day_task_6, day_task_7, day_task_8, day_task_9, day_task_10, day_notes, day_win_1, day_win_2, day_win_3, tasks = []){
+		this.id = id;
+    this.day_day_date = day_day_date;
 		this.user_id = user_id; 
 	    this.day_grateful_1 = day_grateful_1; 
 	    this.day_grateful_2 = day_grateful_2;

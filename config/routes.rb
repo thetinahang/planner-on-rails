@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :planner
   #need to connect landing page with a new page when signed in 
   resources :days#, only: [:index, :show, :new, :create, :edit] #:edit
+  patch 'days', to: 'days#update'
+  #patch 'days', to: 'day#update'
   #get '/days/:id/tasks', to: 'days#data'
   #resources :products, only: [:show, :index, :new, :create]
   #patch 'days/:id', to: 'days#update'
