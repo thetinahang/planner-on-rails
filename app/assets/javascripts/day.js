@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load", function() {
-  $.rails.refreshCSRFTokens()
+//  $.rails.refreshCSRFTokens()
   indexShow();
   showDay();
   addDay();
