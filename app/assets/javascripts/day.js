@@ -1,14 +1,20 @@
-document.addEventListener("turbolinks:load", function() {
-  $.rails.refreshCSRFTokens()
+//document.addEventListener("turbolinks:load", function() {
+////  $.rails.refreshCSRFTokens
+//  indexShow();
+//  showDay();
+//  addDay();
+//})
+
+
+//$(document).on("turbolinks:load",function() {
+//  $.rails.refreshCSRFTokens();  
+//})
+
+$(function() {
   indexShow();
   showDay();
   addDay();
-})
-
-
-//$(function() {
-//  
-//});
+});
 
 function indexShow() {
 	$(".js-more").on("click", function() {
