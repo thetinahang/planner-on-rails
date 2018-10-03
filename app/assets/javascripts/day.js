@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 document.addEventListener("turbolinks:load", function() {
 //  $.rails.refreshCSRFTokens()
+=======
+//document.addEventListener("turbolinks:load", function() {
+////  $.rails.refreshCSRFTokens
+//  indexShow();
+//  showDay();
+//  addDay();
+//})
+
+
+//$(document).on("turbolinks:load",function() {
+//  $.rails.refreshCSRFTokens();  
+//})
+
+$(function() {
+>>>>>>> f820128da8491bacd4c61bc168769b17134000e5
   indexShow();
   showDay();
   addDay();
-})
-
-
-//$(function() {
-//  
-//});
+});
 
 function indexShow() {
 	$(".js-more").on("click", function() {
