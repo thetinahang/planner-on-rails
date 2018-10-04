@@ -15,7 +15,7 @@
   </div>
 <% end %>-->
 
-<%= form_for(@day) do |f| %>
+<%= form_for @day, html: {id: "new_day" } do |f| %>
   <div class="field">
     <%= f.label :day_day_date %><br>
     <%= f.text_field :day_day_date %><br>

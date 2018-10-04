@@ -1,7 +1,7 @@
 document.addEventListener("turbolinks:load", function() {
   indexShow();
   showDay();
-  createDay();
+  addDay();
 })
 
 
@@ -82,7 +82,8 @@ function showDay() {
 }
 
 function addDay() {
-    $('form').submit(function(event) {
+    $('#new_day').submit(function(event) {
+      //debugger
       //prevent form from submitting the default way
       event.preventDefault();
       var values = $(this).serialize();
@@ -141,6 +142,24 @@ function createDay() {
       var newDay = new Day(day_day_date, user_id, day_grateful_1, day_grateful_2, day_grateful_3, day_excited_1, day_excited_2, day_excited_3, day_affirmation, day_focus, day_exercise, day_priority_1, day_priority_2, day_priority_3, day_priority_4, day_priority_5, day_task_1, day_task_2, day_task_3, day_task_4, day_task_5, day_task_6, day_task_7, day_task_8, day_task_9, day_task_10, day_notes, day_win_1, day_win_2, day_win_3, tasks = []);
       var showDayDate = newDay.dayDate();
       $("#dayDayDate").append(showDayDate);
+
+//    $(function() {
+//      $("#new-comment").on("submit", function(e) {
+//        e.preventDefault();
+//        const data = $(this).serialize();
+//        $.ajax({
+//          type: "POST",
+//          data: data,
+//          dataType: "json",
+//          success: function(res) {
+//            $("#comment-text").val("");
+//            let newDay = new Day(res.id, etc.);
+//            let returnDayDate = newDay.dayDate();
+//            $("#dayDayDate").append(returnDayDate)
+//          }
+//        });
+//      });
+//    });  
  
 })}
 
