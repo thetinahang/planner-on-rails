@@ -1,10 +1,10 @@
     <% Hour.all.each do |hour|%>
       <%= day.fields_for :tasks, @day.tasks do |task| %>
-      	<div class="field"> 
-	        <%= hour.hour_number %>.
-	        <%= task.text_field :task_content %> 
-	        <%= task.hidden_field :day_id, :value => @day.id %>
-	        <%= task.hidden_field :hour_id, :value => hour.id %><br>
-    	</div>
+        <div class="field"> 
+          <%= hour.hour_number %>.
+          <%= task.text_field :task_content %> 
+          <%= task.hidden_field :day_id, :value => @day.id %>
+          <%= task.hidden_field :hour_id, :value => hour.id %><br>
+      </div>
       <% end %><br>
     <% end %>

@@ -1,7 +1,5 @@
 class DaysController < ApplicationController
   before_action :set_day, only: [:show, :data, :edit, :update, :destroy]
-  #skip_before_action :verify_authenticity_token
-  #skip_before_action :verify_authenticity_token, :only => :create
 
 #  def index
 #    @user = current_user
