@@ -134,6 +134,7 @@ function showDay() {
 
 function createDay() {    
   $("#newday").on("submit", function(event) {
+    
     event.preventDefault();
     const data = $(this).serialize();
     $.ajax({
