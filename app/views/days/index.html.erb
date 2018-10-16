@@ -1,29 +1,33 @@
 <h1>Here are all of your days:</h1>
+<button class="js-alphabetize" >Alphabetize</button>
 <% @days.each do |day| %>
   <li><%= link_to day.day_day_date, day_path(day) %></li>
   <div id="day-<%= day.id %>">Focus: <%= day.day_focus %></div>
   <button class="js-more" data-id="<%= day.id %>">More Info</button>
 <% end %>
 
-<!--//<script type="text/javascript" charset="utf-8">
-//$(function() {
-//  $(".js-more").on("click", function() {
-//    var id = $(this).data("id");
-//    $.get("/days/" + id + ".json", function(response) {
-//        var dayFocus = response["day_focus"];
-//        var dayExercise = response["day_exercise"];//
-//
-//        var hour = response["hours"].map(function (hour) {
-//          return hour["hour_number"] + ": "});//
-//        var task = response["tasks"].map(function (task) {
-//          return task["task_content"]});//
-//        var hourwithtask = hour.map(function(e, i) {
-//          return "<li>" + e + task[i] + "</li>"}).join('');
-//        
-//        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p><ul>" + hourwithtask + "</ul>" ;//
-//        $("#day-" + id).html(dayText);
-//    });
-//  });
-//});
-//</script>-->
+<script type="text/javascript" charset="utf-8">
+$(document).on('turbolinks:load', function() {
+  $(".js-alphabetize").on("click", function() {
+  	console.log('hello');
+    $.get("/days.json", function(response) {
+        response.sort(function(a, b) {
+		  var nameA = a.day_focus.toUpperCase(); // ignore upper and lowercase
+		  var nameB = b.day_focus.toUpperCase(); // ignore upper and lowercase
+		  if (nameA < nameB) {
+		    return -1;
+		  }
+		  if (nameA > nameB) {
+		    return 1;
+		  }
+
+		  // names must be equal
+		  return 0;
+		});
+        console.log(response)
+        //$("#day-" + id).html(dayText);
+    });
+  });
+});
+</script>
 

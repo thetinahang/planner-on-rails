@@ -141,57 +141,18 @@ function createDay() {
       type: "POST",
       data: data,
       dataType: "json",
+      url: "/days",
       success: function(res) {
-        //$("#comment-text").val("");
         let newDay = new Day(res.day_day_date, res.user_id, res.day_grateful_1, res.day_grateful_2, res.day_grateful_3, res.day_excited_1, res.day_excited_2, res.day_excited_3, res.day_affirmation, res.day_focus, res.day_exercise, res.day_priority_1, res.day_priority_2, res.day_priority_3, res.day_priority_4, res.day_priority_5, res.day_task_1, res.day_task_2, res.day_task_3, res.day_task_4, res.day_task_5, res.day_task_6, res.day_task_7, res.day_task_8, res.day_task_9, res.day_task_10, res.day_notes, res.day_win_1, res.day_win_2, res.day_win_3, res.day_improvement, res.tasks = []);
         let returnDayDate = newDay.dayDate();
-        //$("#dayDayDate").text(newDay["day_day_date"]);
         $("#dayDayDate").append(returnDayDate);
         $("#dayImprovement").text(newDay["day_improvement"]);
-//        $("#dayGrateful1").text(newDay["day_grateful_1"]);
-//        $("#dayGrateful2").text(newDay["day_grateful_2"]);
-//        $("#dayGrateful3").text(newDay["day_grateful_3"]);
-//        $("#dayExcited1").text(newDay["day_excited_1"]);
-//        $("#dayExcited2").text(newDayy["day_excited_2"]);
-//        $("#dayExcited3").text(newDay["day_excited_3"]);
-//        $("#dayAffirmation").text(newDay["day_affirmation"]);
-//        $("#dayFocus").text(newDay["day_focus"]);
-//        $("#dayExercise").text(newDay["day_exercise"]);
-//        $("#dayPriority1").text(newDay["day_priority_1"]);
-//        $("#dayPriority2").text(newDay["day_priority_2"]);
-//        $("#dayPriority3").text(newDay["day_priority_3"]);
-//        $("#dayPriority4").text(newDay["day_priority_4"]);
-//        $("#dayPriority5").text(newDay["day_priority_5"]);
-//        var hour = newDay["hours"].map(function (hour) {
-//          return hour["hour_number"] + ": "});
-//        var task = newDay["tasks"].map(function (task) {
-//          return task["task_content"]});
-//        var hourwithtask = hour.map(function(e, i) {
-//          return e + task[i] + "<br>"}).join('');
-//        
-//        var dayText = hourwithtask;
-//        $("#hourTask").html(hourwithtask);
-//        $("#dayTasks").text(newDay["tasks"]);
-//        $("#dayTask1").text(newDay["day_task_1"]);
-//        $("#dayTask2").text(newDay["day_task_2"]);
-//        $("#dayTask3").text(newDay["day_task_3"]);
-//        $("#dayTask4").text(newDay["day_task_4"]);
-//        $("#dayTask5").text(newDay["day_task_5"]);
-//        $("#dayTask6").text(newDay["day_task_6"]);
-//        $("#dayTask7").text(newDay["day_task_7"]);
-//        $("#dayTask8").text(newDay["day_task_8"]);
-//        $("#dayTask9").text(newDay["day_task_9"]);
-//        $("#dayTask10").text(newDay["day_task_10"]);
-//        $("#dayNotes").text(newDay["day_notes"]);
-//        $("#dayWin1").text(newDay["day_win_1"]);
-//        $("#dayWin2").text(newDay["day_win_2"]);
-//        $("#dayWin3").text(newDay["day_win_3"]);
         
       }
     });
   });  
  
-}
+};
 
 
 class Day {
@@ -234,3 +195,13 @@ class Day {
     return "Your day, " + this.day_day_date + ", has been created!";
   }
 }
+
+//function Day(day_day_date, user_id, day_grateful_1) {
+//  this.day_day_date = day_day_date;
+//  this.user_id = user_id; 
+//  this.day_grateful_1 = day_grateful_1;
+//}//
+
+//Day.prototype.dayDate = function() {
+//  return "Your day, " + this.day_day_date + ", has been created!";
+//}
