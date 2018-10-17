@@ -1,15 +1,16 @@
 <h1>Here are all of your days:</h1>
-<button class="js-alphabetize" >Alphabetize</button>
-<% @days.each do |day| %>
-  <li><%= link_to day.day_day_date, day_path(day) %></li>
-  <div id="day-<%= day.id %>">Focus: <%= day.day_focus %></div>
-  <button class="js-more" data-id="<%= day.id %>">More Info</button>
-<% end %>
+<div class="daysList">
+	<button class="js-alphabetize" >Alphabetize</button>
+	<% @days.each do |day| %>
+	  <li><%= link_to day.day_day_date, day_path(day) %></li>
+	  <div id="day-<%= day.id %>">Focus: <%= day.day_focus %></div>
+	  <button class="js-more" data-id="<%= day.id %>">More Info</button>
+	<% end %>
+</div>
 
 <script type="text/javascript" charset="utf-8">
 $(document).on('turbolinks:load', function() {
   $(".js-alphabetize").on("click", function() {
-  	console.log('hello');
     $.get("/days.json", function(response) {
         response.sort(function(a, b) {
 		  var nameA = a.day_focus.toUpperCase(); // ignore upper and lowercase
@@ -24,7 +25,11 @@ $(document).on('turbolinks:load', function() {
 		  // names must be equal
 		  return 0;
 		});
-        console.log(response)
+        console.log(response);
+        var format = response.map(function(day) {
+        	return day.day_focus;
+        });
+        $(".daysList").append(format);
         //$("#day-" + id).html(dayText);
     });
   });

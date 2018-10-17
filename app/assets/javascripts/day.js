@@ -4,11 +4,6 @@ document.addEventListener("turbolinks:load", function() {
   createDay();
 })
 
-
-//$(function() {
-//  
-//});
-
 function indexShow() {
   $(".js-more").on("click", function() {
       var id = $(this).data("id");
@@ -78,59 +73,6 @@ function showDay() {
    });
 }
 
-//function addDay() {
-//    $('#new_day').submit(function(event) {
-//      //debugger
-//      //prevent form from submitting the default way
-//      event.preventDefault();
-//      var values = $(this).serialize();
-//      var dy = $.post('/days', values);
-// 
-//      dy.done(function(data) {
-//        var day = data;
-//        $("#dayDayDate").text(day["day_day_date"]);
-//        $("#dayGrateful1").text(day["day_grateful_1"]);
-//        $("#dayGrateful2").text(day["day_grateful_2"]);
-//        $("#dayGrateful3").text(day["day_grateful_3"]);
-//        $("#dayExcited1").text(day["day_excited_1"]);
-//        $("#dayExcited2").text(day["day_excited_2"]);
-//        $("#dayExcited3").text(day["day_excited_3"]);
-//        $("#dayAffirmation").text(day["day_affirmation"]);
-//        $("#dayFocus").text(day["day_focus"]);
-//        $("#dayExercise").text(day["day_exercise"]);
-//        $("#dayPriority1").text(day["day_priority_1"]);
-//        $("#dayPriority2").text(day["day_priority_2"]);
-//        $("#dayPriority3").text(day["day_priority_3"]);
-//        $("#dayPriority4").text(day["day_priority_4"]);
-//        $("#dayPriority5").text(day["day_priority_5"]);
-//        var hour = day["hours"].map(function (hour) {
-//          return hour["hour_number"] + ": "});
-//        var task = day["tasks"].map(function (task) {
-//          return task["task_content"]});
-//        var hourwithtask = hour.map(function(e, i) {
-//          return e + task[i] + "<br>"}).join('');
-//        
-//        var dayText = hourwithtask;
-//        $("#hourTask").html(hourwithtask);
-//        $("#dayTasks").text(day["tasks"]);
-//        $("#dayTask1").text(day["day_task_1"]);
-//        $("#dayTask2").text(day["day_task_2"]);
-//        $("#dayTask3").text(day["day_task_3"]);
-//        $("#dayTask4").text(day["day_task_4"]);
-//        $("#dayTask5").text(day["day_task_5"]);
-//        $("#dayTask6").text(day["day_task_6"]);
-//        $("#dayTask7").text(day["day_task_7"]);
-//        $("#dayTask8").text(day["day_task_8"]);
-//        $("#dayTask9").text(day["day_task_9"]);
-//        $("#dayTask10").text(day["day_task_10"]);
-//        $("#dayNotes").text(day["day_notes"]);
-//        $("#dayWin1").text(day["day_win_1"]);
-//        $("#dayWin2").text(day["day_win_2"]);
-//        $("#dayWin3").text(day["day_win_3"]);
-//        $("#dayImprovement").text(day["day_improvement"]);
-//      });
-//    });
-//}
 
 function createDay() {    
   $("#newday").on("submit", function(event) {
