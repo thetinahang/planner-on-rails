@@ -27,7 +27,18 @@ $(document).on('turbolinks:load', function() {
 		});
         console.log(response);
         var format = response.map(function(day) {
-        	return day.day_focus;
+        	//return "<br>" + day.day_day_date + "<br>" + " Focus: " + day.day_focus ;
+        	var dayDayDayDate = day["day_day_date"];
+        	var dayFocus = day["day_focus"];
+          	var dayExercise = day["day_exercise"];
+          	//var hour = day["hours"].map(function (hour) {
+            //	return hour["hour_number"] + ": "});
+          	//var task = day["tasks"].map(function (task) {
+            //	return task["task_content"]});
+          	//var hourwithtask = hour.map(function(e, i) {
+            //	return "<li>" + e + task[i] + "</li>"}).join('');
+          	var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>"; //<ul>" + hourwithtask + "</ul>" ;
+          	return dayText;
         });
         $(".daysList").append(format);
         //$("#day-" + id).html(dayText);
