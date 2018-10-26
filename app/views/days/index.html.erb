@@ -1,6 +1,6 @@
 <h1>Here are all of your days:</h1>
 <div class="daysList">
-	<button class="js-alphabetize" >Alphabetize</button>
+	<button class="js-alphabetize" >Alphabetize by Focus</button>
 	<% @days.each do |day| %>
 	  <li><%= link_to day.day_day_date, day_path(day) %></li>
 	  <div id="day-<%= day.id %>">Focus: <%= day.day_focus %></div>
@@ -35,17 +35,18 @@ $(document).on('turbolinks:load', function() {
     function alphabetizeIndexShow(response) {
     	var listOfObjects = [];
     	response.forEach(function(element) {
+    		var dayId = element["id"];
+    		var dayDayDate = element["day_day_date"];
     		var dayFocus = element["day_focus"];
-	        var dayExercise = element["day_exercise"];
 	        //var hour = element["hours"].map(function (hour) {
 	        //	return hour["hour_number"] + ": "});
 	        //var task = element["tasks"].map(function (task) {
 	        //    return task["task_content"]});
 	        //var hourwithtask = hour.map(function(e, i) {
 	        //    return "<li>" + e + task[i] + "</li>"}).join('');
-	        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>"; //<ul>" + hourwithtask + "</ul>" ;//
+	        var dayText = "<li> "+ dayDayDate + "</li>" + "<p> Focus: "+ dayFocus + dayId + "</p><button class=" + "js-more" + " data-id=" + dayId + ">More Info</button>"; //<ul>" + hourwithtask + "</ul>" ;//
 	        //return dayFocus;
-	        console.log(dayText);
+	        //console.log(dayText);
 	        listOfObjects.push(dayText);
     	});
     	$(".daysList").html(listOfObjects);   	
