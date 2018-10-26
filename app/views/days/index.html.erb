@@ -27,11 +27,13 @@ $(document).on('turbolinks:load', function() {
 		});
         console.log(response);// it works up to here
         var format = alphabetizeIndexShow(response);
-        $(".daysList").html(format);
+        //console.log(format);
+        //$(".daysList").html(format);
         console.log("everything should have worked");
         //$("#day-" + id).html(dayText);
     })
     function alphabetizeIndexShow(response) {
+    	var listOfObjects = [];
     	response.forEach(function(element) {
     		var dayFocus = element["day_focus"];
 	        var dayExercise = element["day_exercise"];
@@ -41,9 +43,12 @@ $(document).on('turbolinks:load', function() {
 	        //    return task["task_content"]});
 	        //var hourwithtask = hour.map(function(e, i) {
 	        //    return "<li>" + e + task[i] + "</li>"}).join('');
-	        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>" //<ul>" + hourwithtask + "</ul>" ;//
-	        return dayText;
-    	});   	
+	        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>"; //<ul>" + hourwithtask + "</ul>" ;//
+	        //return dayFocus;
+	        console.log(dayText);
+	        listOfObjects.push(dayText);
+    	});
+    	$(".daysList").html(listOfObjects);   	
     };
   });
 });
