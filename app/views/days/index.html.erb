@@ -26,32 +26,25 @@ $(document).on('turbolinks:load', function() {
 		  return 0;
 		});
         console.log(response);// it works up to here
-        let format = response
-        //var format = response.map(function(day) {
-        	//return "<br>" + day.day_day_date + "<br>" + " Focus: " + day.day_focus ;
-        	//var dayDayDayDate = day["day_day_date"];
-        	//var dayFocus = day["day_focus"];
-          	//var dayExercise = day["day_exercise"];
-          	//var hour = day["hours"].map(function (hour) {
-            //	return hour["hour_number"] + ": "});
-          	//var task = day["tasks"].map(function (task) {
-            //	return task["task_content"]});
-          	//var hourwithtask = hour.map(function(e, i) {
-            //	return "<li>" + e + task[i] + "</li>"}).join('');
-          	//var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>"; //<ul>" + hourwithtask + "</ul>" ;
-          	//return dayText;
-          	//function showList() {
-          	//	var dayDayDayDate = day["day_day_date"];
-          	//	var dayFocus = day["day_focus"];
-          	//	var dayExercise = day["day_exercise"];
-          	//	var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>";
-          	//	return dayText;
-          	//}
-        //});
-        $(".daysList").append(response);
+        var format = alphabetizeIndexShow(response);
+        $(".daysList").html(format);
         console.log("everything should have worked");
         //$("#day-" + id).html(dayText);
-    });
+    })
+    function alphabetizeIndexShow(response) {
+    	response.forEach(function(element) {
+    		var dayFocus = element["day_focus"];
+	        var dayExercise = element["day_exercise"];
+	        //var hour = element["hours"].map(function (hour) {
+	        //	return hour["hour_number"] + ": "});
+	        //var task = element["tasks"].map(function (task) {
+	        //    return task["task_content"]});
+	        //var hourwithtask = hour.map(function(e, i) {
+	        //    return "<li>" + e + task[i] + "</li>"}).join('');
+	        var dayText = "<p> Focus: "+ dayFocus + "</p><p> Exercise: " + dayExercise + "</p>" //<ul>" + hourwithtask + "</ul>" ;//
+	        return dayText;
+    	});   	
+    };
   });
 });
 </script>
